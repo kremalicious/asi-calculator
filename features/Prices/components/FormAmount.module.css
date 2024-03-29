@@ -1,0 +1,23 @@
+.form {
+  display: inline-block;
+}
+
+.input {
+  all: unset;
+  width: auto;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  text-align: center;
+  background-color: rgba(var(--foreground-rgb), 0.15);
+  border-radius: var(--border-radius);
+}
+
+.input:hover {
+  background-color: rgba(var(--foreground-rgb), 0.2);
+}
+
+.input:focus-within {
+  outline: none;
+  background-color: rgba(var(--foreground-rgb), 0.3);
+  color: rgb(var(--foreground-rgb-highlight));
+}

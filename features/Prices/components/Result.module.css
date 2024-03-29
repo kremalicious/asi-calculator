@@ -2,5 +2,9 @@
   margin-bottom: 1rem;
 }
 
+.result:last-child {
+  margin-bottom: 0;
+}
+
 .amount {
 }

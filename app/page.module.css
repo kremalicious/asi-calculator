@@ -1,12 +1,23 @@
 .main,
 .footer {
   padding: 2rem;
+}
+
+.title,
+.description {
+  color: rgb(var(--foreground-rgb-highlight));
   max-width: var(--max-width);
   margin: auto;
 }
 
 .title {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.description {
   margin-bottom: 2rem;
+  font-size: 1.3rem;
 }
 
 .footer {
