@@ -1,0 +1,18 @@
+.results {
+  margin-top: 2rem;
+}
+
+.results h3,
+.results p {
+  margin-bottom: 1rem;
+}
+
+.results p {
+  padding-left: 100px;
+}
+
+.results p span {
+  margin-left: -100px;
+  min-width: 100px;
+  display: inline-block;
+}
