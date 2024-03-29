@@ -13,6 +13,6 @@
 
 .results p span {
   margin-left: -100px;
-  min-width: 100px;
+  min-width: 90px;
   display: inline-block;
 }

@@ -1,1 +1,1 @@
-export * from './Prices'
+export * from './components/Prices'

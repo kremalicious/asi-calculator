@@ -1,10 +1,15 @@
-.main {
+.main,
+.footer {
   padding: 2rem;
-  min-height: 100vh;
   max-width: var(--max-width);
   margin: auto;
 }
 
 .title {
   margin-bottom: 2rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
 }
