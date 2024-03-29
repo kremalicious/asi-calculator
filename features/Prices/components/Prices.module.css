@@ -2,17 +2,6 @@
   margin-top: 2rem;
 }
 
-.results h3,
-.results p {
+.results h3 {
   margin-bottom: 1rem;
-}
-
-.results p {
-  padding-left: 100px;
-}
-
-.results p span {
-  margin-left: -100px;
-  min-width: 90px;
-  display: inline-block;
 }

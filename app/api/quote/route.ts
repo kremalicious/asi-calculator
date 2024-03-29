@@ -7,7 +7,6 @@ const apiUrl = 'https://api.1inch.dev/swap/v6.0/1/quote'
 const config: RequestInit = {
   headers: {
     Authorization: `Bearer ${process.env.ONEINCH_API_KEY}`,
-    accept: 'application/json',
     'content-type': 'application/json'
   },
   method: 'GET',
@@ -24,18 +23,27 @@ export async function GET(request: NextRequest) {
     return Response.json(null, { status: 400 })
   }
 
-  let data
   const url = `${apiUrl}/?src=${src}&dst=${dst}&amount=${amount}&includeTokensInfo=true&includeProtocols=true`
+  let data
+  let status
 
   try {
     const res = await fetch(url, config)
     const json = await res.json()
 
     data = json
+    status = res.status
   } catch (error: unknown) {
     console.error((error as Error).message)
     data = null
+    status = 500
   }
 
-  return Response.json(data)
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, s-maxage=10'
+    }
+  })
 }
