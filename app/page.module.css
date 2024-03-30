@@ -21,6 +21,6 @@
   flex-shrink: 0;
   font-size: 0.8rem;
   width: 100%;
-  max-width: calc(var(--max-width) * 1.5);
+  max-width: var(--max-width);
   margin: 3rem auto 0 auto;
 }

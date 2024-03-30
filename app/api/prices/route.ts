@@ -39,8 +39,7 @@ export async function GET(request: NextRequest) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'public, s-maxage=10'
+      'Content-Type': 'application/json'
     }
   })
 }
