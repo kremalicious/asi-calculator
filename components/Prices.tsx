@@ -148,7 +148,14 @@ export function Prices() {
           />
         </div>
       </div>
-      <Content prices={{ ocean: priceOcean, agix: priceAgix, asi: priceAsi }} />
+      <Content
+        prices={{
+          ocean: priceOcean,
+          agix: priceAgix,
+          asi: priceAsi,
+          fet: priceFet
+        }}
+      />
     </>
   )
 }

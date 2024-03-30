@@ -24,9 +24,11 @@
 
 .calculationBase {
   border: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-bottom: none;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   border-radius: var(--border-radius);
+  margin-top: 2rem;
 }
 
 .calculationBase li {
@@ -35,10 +37,6 @@
   font-size: 0.8rem;
 }
 
-.calculationBase li:first-child {
+.calculationBase li:nth-child(odd) {
   border-right: 1px solid rgba(var(--foreground-rgb), 0.2);
-}
-
-.calculationBase li:last-child {
-  border-bottom: none;
 }
