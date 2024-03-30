@@ -31,7 +31,6 @@ export function Prices() {
     }`,
     fetcher
   )
-  console.log(dataSwapOceanToAgix)
 
   const { data: dataSwapOceanToFet } = useSWR(
     `/api/quote/?src=${tokens[0]}&dst=${tokens[1]}&amount=${
