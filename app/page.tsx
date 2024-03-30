@@ -13,7 +13,7 @@ export default function Home() {
         <Prices />
       </main>
       <footer className={styles.footer}>
-        Send ❤️ & meme coins to krema.eth
+        Send ❤️ and memecoins to krema.eth
       </footer>
     </>
   )

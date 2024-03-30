@@ -26,16 +26,12 @@ export function Prices() {
   )
 
   const { data: dataSwapOceanToAgix } = useSWR(
-    `/api/quote/?src=${tokens[0]}&dst=${tokens[2]}&amount=${
-      debouncedAmountSwap * 1e18
-    }`,
+    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmountSwap}`,
     fetcher
   )
 
   const { data: dataSwapOceanToFet } = useSWR(
-    `/api/quote/?src=${tokens[0]}&dst=${tokens[1]}&amount=${
-      debouncedAmountSwap * 1e18
-    }`,
+    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmountSwap}`,
     fetcher
   )
 
@@ -66,17 +62,17 @@ export function Prices() {
             tokenSymbol="AGIX"
             tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
             amount={
-              dataSwapOceanToAgix?.dstAmount /
-                Number(`1e${dataSwapOceanToAgix?.dstToken?.decimals}`) || 0
+              dataSwapOceanToAgix?.amountOut /
+                Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0
             }
             amountAsi={
-              (dataSwapOceanToAgix?.dstAmount /
-                Number(`1e${dataSwapOceanToAgix?.dstToken?.decimals}`) || 0) *
+              (dataSwapOceanToAgix?.amountOut /
+                Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) *
               ratioAgixToAsi
             }
             amountFiat={
-              (dataSwapOceanToAgix?.dstAmount /
-                Number(`1e${dataSwapOceanToAgix?.dstToken?.decimals}`) || 0) *
+              (dataSwapOceanToAgix?.amountOut /
+                Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) *
               ratioAgixToAsi *
               priceAsi
             }
@@ -86,18 +82,17 @@ export function Prices() {
             tokenSymbol="FET"
             tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
             amount={
-              dataSwapOceanToFet?.dstAmount /
-                Number(`1e${dataSwapOceanToFet?.dstToken?.decimals}`) || 0
+              dataSwapOceanToFet?.amountOut /
+                Number(`1e${dataSwapOceanToFet?.decimals}`) || 0
             }
             amountAsi={
-              (dataSwapOceanToFet?.dstAmount /
-                Number(`1e${dataSwapOceanToFet?.dstToken?.decimals}`) || 0) *
+              (dataSwapOceanToFet?.amountOut /
+                Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) *
               ratioFetToAsi
             }
             amountFiat={
-              (dataSwapOceanToFet?.dstAmount /
-                Number(`1e${dataSwapOceanToFet?.dstToken?.decimals}`) || 0) *
-              priceAsi
+              (dataSwapOceanToFet?.amountOut /
+                Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * priceAsi
             }
           />
         </div>

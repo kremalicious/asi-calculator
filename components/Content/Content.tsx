@@ -16,7 +16,8 @@ export function Content({ prices }: Props) {
           fixed ASI exchange rate
         </a>
         , the fluctuating fiat values fetched from <a href="">Coingecko</a>, and
-        token swap quotes from <a href="https://1inch.io">1inch</a>.
+        token swap quotes from <a href="https://uniswap.org">Uniswap</a> v3
+        routes.
       </p>
 
       <ul className={styles.calculationBase}>

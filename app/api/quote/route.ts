@@ -2,28 +2,27 @@ import { type NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
-const apiUrl = 'https://api.1inch.dev/swap/v6.0/1/quote'
+const apiUrl = process.env.WEB3_API_URL
 
 const config: RequestInit = {
   headers: {
-    Authorization: `Bearer ${process.env.ONEINCH_API_KEY}`,
     'content-type': 'application/json'
   },
   method: 'GET',
-  next: { revalidate: 60 }
+  next: { revalidate: 30 }
 }
 
 export async function GET(request: NextRequest) {
   const searchParams = request?.nextUrl?.searchParams
-  const src = searchParams?.get('src')
-  const dst = searchParams?.get('dst')
-  const amount = searchParams?.get('amount')
+  const tokenIn = searchParams?.get('tokenIn')
+  const tokenOut = searchParams?.get('tokenOut')
+  const amountIn = searchParams?.get('amountIn')
 
-  if (!src || !dst || !amount) {
+  if (!tokenIn || !tokenOut || !amountIn) {
     return Response.json(null, { status: 400 })
   }
 
-  const url = `${apiUrl}/?src=${src}&dst=${dst}&amount=${amount}&includeTokensInfo=true&includeProtocols=true`
+  const url = `${apiUrl}/quote?tokenIn=${tokenIn}&tokenOut=${tokenOut}&amountIn=${amountIn}`
   let data
   let status
 
