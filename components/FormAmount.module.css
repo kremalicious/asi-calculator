@@ -8,16 +8,30 @@
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   text-align: center;
-  background-color: rgba(var(--foreground-rgb), 0.15);
+  background-color: rgba(var(--background-end-rgb), 0.4);
   border-radius: var(--border-radius);
 }
 
 .input:hover {
-  background-color: rgba(var(--foreground-rgb), 0.2);
+  background-color: rgba(var(--background-end-rgb), 0.5);
 }
 
 .input:focus-within {
   outline: none;
-  background-color: rgba(var(--foreground-rgb), 0.3);
+  background-color: rgba(var(--background-end-rgb), 0.9);
   color: rgb(var(--foreground-rgb-highlight));
+}
+
+@media (prefers-color-scheme: dark) {
+  .input {
+    background-color: rgba(var(--foreground-rgb), 0.15);
+  }
+
+  .input:hover {
+    background-color: rgba(var(--foreground-rgb), 0.2);
+  }
+
+  .input:focus-within {
+    background-color: rgba(var(--foreground-rgb), 0.3);
+  }
 }

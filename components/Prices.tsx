@@ -8,7 +8,6 @@ import {
   tokens,
   ratioOceanToAsi,
   ratioAgixToAsi,
-  exampleBuyInUsd,
   ratioFetToAsi
 } from '@/constants'
 import { useState } from 'react'
@@ -19,6 +18,8 @@ import { Content } from '@/components/Content'
 export function Prices() {
   const [amountSwap, setAmountSwap] = useState(100)
   const [debouncedAmountSwap] = useDebounce(amountSwap, 500)
+  const [amountBuy, setAmountBuy] = useState(100)
+  const [debouncedAmountBuy] = useDebounce(amountBuy, 500)
 
   const { data: dataPrices } = useSWR(
     `/api/prices/?tokens=${tokens.toString()}`,
@@ -47,7 +48,8 @@ export function Prices() {
           <h3>
             Swapping{' '}
             <FormAmount amount={amountSwap} setAmount={setAmountSwap} /> OCEAN (
-            {formatNumber(debouncedAmountSwap * priceOcean, 'USD')}) gets you:
+            {formatNumber(debouncedAmountSwap * priceOcean, 'USD')}) right now
+            gets you:
           </h3>
 
           <Result
@@ -98,43 +100,49 @@ export function Prices() {
         </div>
 
         <div className={styles.results}>
-          <h3>Buying with ${exampleBuyInUsd} right now gets you:</h3>
+          <h3>
+            Buying with $
+            <FormAmount amount={amountBuy} setAmount={setAmountBuy} /> right now
+            gets you:
+          </h3>
           <Result
             tokenSymbol="OCEAN"
             tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
-            amount={priceOcean ? exampleBuyInUsd / priceOcean : 0}
+            amount={priceOcean ? debouncedAmountBuy / priceOcean : 0}
             amountAsi={
-              priceOcean ? (exampleBuyInUsd / priceOcean) * ratioOceanToAsi : 0
+              priceOcean
+                ? (debouncedAmountBuy / priceOcean) * ratioOceanToAsi
+                : 0
             }
             amountFiat={
               priceOcean
-                ? (exampleBuyInUsd / priceOcean) * ratioOceanToAsi * priceAsi
+                ? (debouncedAmountBuy / priceOcean) * ratioOceanToAsi * priceAsi
                 : 0
             }
           />
           <Result
             tokenSymbol="AGIX"
             tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
-            amount={priceAgix ? exampleBuyInUsd / priceAgix : 0}
+            amount={priceAgix ? debouncedAmountBuy / priceAgix : 0}
             amountAsi={
-              priceAgix ? (exampleBuyInUsd / priceAgix) * ratioAgixToAsi : 0
+              priceAgix ? (debouncedAmountBuy / priceAgix) * ratioAgixToAsi : 0
             }
             amountFiat={
               priceAgix
-                ? (exampleBuyInUsd / priceAgix) * ratioAgixToAsi * priceAsi
+                ? (debouncedAmountBuy / priceAgix) * ratioAgixToAsi * priceAsi
                 : 0
             }
           />
           <Result
             tokenSymbol="FET"
             tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
-            amount={priceFet ? exampleBuyInUsd / priceFet : 0}
+            amount={priceFet ? debouncedAmountBuy / priceFet : 0}
             amountAsi={
-              priceFet ? (exampleBuyInUsd / priceFet) * ratioFetToAsi : 0
+              priceFet ? (debouncedAmountBuy / priceFet) * ratioFetToAsi : 0
             }
             amountFiat={
               priceFet
-                ? (exampleBuyInUsd / priceFet) * ratioFetToAsi * priceAsi
+                ? (debouncedAmountBuy / priceFet) * ratioFetToAsi * priceAsi
                 : 0
             }
           />
