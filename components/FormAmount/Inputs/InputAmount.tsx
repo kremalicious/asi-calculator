@@ -12,6 +12,8 @@ export function InputAmount({
     <input
       className={styles.input}
       type="text"
+      inputMode="numeric"
+      pattern="[0-9]*"
       value={amount}
       onChange={(e) => setAmount(Number(e.target.value))}
     />
