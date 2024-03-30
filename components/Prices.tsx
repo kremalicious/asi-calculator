@@ -13,16 +13,15 @@ import {
 } from '@/constants'
 import { useState } from 'react'
 import { FormAmount } from './FormAmount'
-import { fetcher } from '../utils'
+import { fetcher, formatNumber } from '@/utils'
+import { Content } from '@/components/Content'
 
 export function Prices() {
   const [amountSwap, setAmountSwap] = useState(100)
   const [debouncedAmountSwap] = useDebounce(amountSwap, 500)
 
-  console.log(debouncedAmountSwap)
-
   const { data: dataPrices } = useSWR(
-    `https://web3.kremalicious.com/api/prices/?tokens=${tokens.toString()}`,
+    `/api/prices/?tokens=${tokens.toString()}`,
     fetcher
   )
   const { data: dataSwapOceanToAgix } = useSWR(
@@ -46,19 +45,9 @@ export function Prices() {
 
   return (
     <>
-      <div className={styles.header}>
-        <p>
-          1 OCEAN = {ratioOceanToAsi} ASI (fixed) = ${priceOcean}
-        </p>
-        <p>
-          1 AGIX = {ratioAgixToAsi} ASI (fixed) = ${priceAgix}
-        </p>
-        <p>1 Fet = 1 ASI (fixed) = ${priceAsi}</p>
-      </div>
-
       <div className={styles.grid}>
         <div className={styles.results}>
-          <h3>${exampleBuyInUsd} right now gets you:</h3>
+          <h3>Buying with ${exampleBuyInUsd} right now gets you:</h3>
           <Result
             symbol="OCEAN"
             amount={exampleBuyInUsd / priceOcean}
@@ -85,9 +74,9 @@ export function Prices() {
 
         <div className={styles.results}>
           <h3>
-            <FormAmount amount={amountSwap} setAmount={setAmountSwap} /> OCEAN
-            (${(debouncedAmountSwap * priceOcean).toFixed(2)}) right now gets
-            you:
+            Swapping{' '}
+            <FormAmount amount={amountSwap} setAmount={setAmountSwap} /> OCEAN (
+            {formatNumber(debouncedAmountSwap * priceOcean, 'USD')}) gets you:
           </h3>
 
           <Result
@@ -135,6 +124,7 @@ export function Prices() {
           />
         </div>
       </div>
+      <Content prices={{ ocean: priceOcean, agix: priceAgix, asi: priceAsi }} />
     </>
   )
 }

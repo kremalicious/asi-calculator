@@ -1,6 +1,5 @@
-.main,
-.footer {
-  padding: 2rem;
+.main {
+  flex: 1 0 auto;
 }
 
 .title,
@@ -11,16 +10,16 @@
 }
 
 .title {
-  margin-bottom: 0.5rem;
-  font-size: 2rem;
+  font-size: clamp(1.3rem, 10vw, 2.5rem);
 }
 
 .description {
   margin-bottom: 2rem;
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 10vw, 1.75rem);
 }
 
 .footer {
   margin-top: 2rem;
+  flex-shrink: 0;
   font-size: 0.8rem;
 }

@@ -1,4 +1,4 @@
-import { Prices } from '@/features/Prices'
+import { Prices } from '@/components/Prices'
 import styles from './page.module.css'
 import { metadata } from './layout'
 
