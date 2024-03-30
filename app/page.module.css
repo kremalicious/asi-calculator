@@ -14,12 +14,13 @@
 }
 
 .description {
-  margin-bottom: 2rem;
   font-size: clamp(1.1rem, 10vw, 1.75rem);
 }
 
 .footer {
-  margin-top: 2rem;
   flex-shrink: 0;
   font-size: 0.8rem;
+  width: 100%;
+  max-width: calc(var(--max-width) * 1.5);
+  margin: 3rem auto 0 auto;
 }

@@ -29,12 +29,14 @@ export function Result({
           />
         </span>
 
-        {formatNumber(amount, tokenSymbol)}
+        {formatNumber(amount || 0, tokenSymbol)}
       </p>
       <p className={styles.conversion}>
         →{' '}
-        <strong title={`${amountAsi}`}>{formatNumber(amountAsi, 'ASI')}</strong>{' '}
-        = <strong>{formatNumber(amountFiat, 'USD')}</strong>
+        <strong title={`${amountAsi}`}>
+          {formatNumber(amountAsi || 0, 'ASI')}
+        </strong>{' '}
+        = <strong>{formatNumber(amountFiat || 0, 'USD')}</strong>
       </p>
     </div>
   )

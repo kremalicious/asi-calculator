@@ -49,35 +49,6 @@ export function Prices() {
     <>
       <div className={styles.grid}>
         <div className={styles.results}>
-          <h3>Buying with ${exampleBuyInUsd} right now gets you:</h3>
-          <Result
-            tokenSymbol="OCEAN"
-            tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
-            amount={exampleBuyInUsd / priceOcean}
-            amountAsi={(exampleBuyInUsd / priceOcean) * ratioOceanToAsi}
-            amountFiat={
-              (exampleBuyInUsd / priceOcean) * ratioOceanToAsi * priceAsi
-            }
-          />
-          <Result
-            tokenSymbol="AGIX"
-            tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
-            amount={exampleBuyInUsd / priceAgix}
-            amountAsi={(exampleBuyInUsd / priceAgix) * ratioAgixToAsi}
-            amountFiat={
-              (exampleBuyInUsd / priceAgix) * ratioAgixToAsi * priceAsi
-            }
-          />
-          <Result
-            tokenSymbol="FET"
-            tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
-            amount={exampleBuyInUsd / priceFet}
-            amountAsi={(exampleBuyInUsd / priceFet) * ratioFetToAsi}
-            amountFiat={(exampleBuyInUsd / priceFet) * ratioFetToAsi * priceAsi}
-          />
-        </div>
-
-        <div className={styles.results}>
           <h3>
             Swapping{' '}
             <FormAmount amount={amountSwap} setAmount={setAmountSwap} /> OCEAN (
@@ -128,6 +99,49 @@ export function Prices() {
               (dataSwapOceanToFet?.dstAmount /
                 Number(`1e${dataSwapOceanToFet?.dstToken?.decimals}`) || 0) *
               priceAsi
+            }
+          />
+        </div>
+
+        <div className={styles.results}>
+          <h3>Buying with ${exampleBuyInUsd} right now gets you:</h3>
+          <Result
+            tokenSymbol="OCEAN"
+            tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
+            amount={priceOcean ? exampleBuyInUsd / priceOcean : 0}
+            amountAsi={
+              priceOcean ? (exampleBuyInUsd / priceOcean) * ratioOceanToAsi : 0
+            }
+            amountFiat={
+              priceOcean
+                ? (exampleBuyInUsd / priceOcean) * ratioOceanToAsi * priceAsi
+                : 0
+            }
+          />
+          <Result
+            tokenSymbol="AGIX"
+            tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
+            amount={priceAgix ? exampleBuyInUsd / priceAgix : 0}
+            amountAsi={
+              priceAgix ? (exampleBuyInUsd / priceAgix) * ratioAgixToAsi : 0
+            }
+            amountFiat={
+              priceAgix
+                ? (exampleBuyInUsd / priceAgix) * ratioAgixToAsi * priceAsi
+                : 0
+            }
+          />
+          <Result
+            tokenSymbol="FET"
+            tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
+            amount={priceFet ? exampleBuyInUsd / priceFet : 0}
+            amountAsi={
+              priceFet ? (exampleBuyInUsd / priceFet) * ratioFetToAsi : 0
+            }
+            amountFiat={
+              priceFet
+                ? (exampleBuyInUsd / priceFet) * ratioFetToAsi * priceAsi
+                : 0
             }
           />
         </div>
