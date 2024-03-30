@@ -7,5 +7,3 @@ export const tokens: `0x${string}`[] = [
   '0xaea46a60368a7bd060eec7df8cba43b7ef41ad85', // FET
   '0x5b7533812759b45c2b44c19e320ba2cd2681b542' // AGIX
 ]
-
-export const exampleBuyInUsd = 100
