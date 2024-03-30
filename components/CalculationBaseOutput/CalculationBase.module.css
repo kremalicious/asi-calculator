@@ -1,9 +1,10 @@
 .calculationBase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
   border-top: 1px solid rgba(var(--foreground-rgb), 0.2);
   border-left: 1px solid rgba(var(--foreground-rgb), 0.2);
   border-bottom: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   border-radius: var(--border-radius);
   margin-top: 1.5rem;
 }

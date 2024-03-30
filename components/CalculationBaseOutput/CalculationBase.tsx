@@ -14,6 +14,11 @@ export function CalculationBase() {
         <br />= ${prices.asi}
       </li>
       <li>
+        1 Fet = {ratioFetToAsi} ASI
+        <span className={styles.label}>fixed</span>
+        <br />= ${prices.fet}
+      </li>
+      <li>
         1 OCEAN = {ratioOceanToAsi} ASI
         <span className={styles.label}>fixed</span>
         <br />= ${prices.ocean}
@@ -22,11 +27,6 @@ export function CalculationBase() {
         1 AGIX = {ratioAgixToAsi} ASI
         <span className={styles.label}>fixed</span>
         <br />= ${prices.agix}
-      </li>
-      <li>
-        1 Fet = {ratioFetToAsi} ASI
-        <span className={styles.label}>fixed</span>
-        <br />= ${prices.fet}
       </li>
     </ul>
   )

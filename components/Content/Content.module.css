@@ -3,8 +3,14 @@
   margin: auto;
 }
 
-.content p {
-  margin-bottom: 1rem;
+.content p,
+.content ul,
+.content ol,
+.content h2,
+.content h3,
+.content h4,
+.content h5 {
+  margin-bottom: 1.5rem;
 }
 
 .content a {
@@ -12,15 +18,16 @@
 }
 
 .content ul {
-  list-style-type: disc;
-  margin-left: 4rem;
+  list-style-type: square;
+  margin-left: 1rem;
 }
 
 .content ol {
   list-style-type: decimal;
-  margin-left: 4rem;
+  margin-left: 1rem;
 }
 
 .content li {
   margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
 }

@@ -2,7 +2,7 @@ import styles from './page.module.css'
 import { metadata } from './layout'
 import { Swap, Buy } from '@/components/Strategies'
 import { Content } from '@/components/Content'
-import { CalculationBase } from '@/components/CalculationBase'
+import { CalculationBase } from '@/components/CalculationBaseOutput'
 
 export default function Home() {
   return (

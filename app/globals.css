@@ -4,16 +4,26 @@
 
   --foreground-rgb: 20, 20, 20;
   --foreground-rgb-highlight: 0, 0, 0;
-  --background-start-rgb: 225, 230, 230;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: 255, 255, 255;
+  --background-gradient: radial-gradient(
+    circle at 30% 0%,
+    rgb(216, 225, 242) 0%,
+    rgb(176, 187, 240) 30%,
+    rgb(255, 255, 255) 100%
+  );
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 220, 220, 220;
     --foreground-rgb-highlight: 255, 255, 255;
-    --background-start-rgb: 25, 25, 25;
-    --background-end-rgb: 0, 0, 0;
+    --background-rgb: 0, 0, 0;
+    --background-gradient: radial-gradient(
+      circle at 30% 0%,
+      rgb(27, 40, 62) 0%,
+      rgb(15, 18, 33) 30%,
+      rgb(0, 0, 0) 100%
+    );
   }
 }
 
@@ -33,12 +43,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background-gradient) rgb(var(--background-rgb));
   line-height: 1.5;
   min-height: 100vh;
   height: 100%;
