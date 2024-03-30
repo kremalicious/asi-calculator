@@ -19,6 +19,7 @@ export function InputToken({
         onChange={(e) => (setToken ? setToken(e.target.value as Token) : null)}
         value={token}
         disabled={!setToken}
+        style={setToken ? { paddingRight: '1.25rem' } : {}}
       >
         {isFiat ? (
           <option value="usd">USD</option>
