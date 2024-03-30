@@ -17,6 +17,14 @@
   font-size: clamp(1.1rem, 10vw, 1.5rem);
 }
 
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  max-width: calc(var(--max-width) * 1.5);
+  margin: 3rem auto;
+}
+
 .footer {
   flex-shrink: 0;
   font-size: 0.8rem;

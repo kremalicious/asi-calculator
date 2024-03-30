@@ -1,5 +1,5 @@
-import styles from './Result.module.css'
-import { formatNumber } from '../utils'
+import styles from './ResultRow.module.css'
+import { formatNumber } from '@/utils'
 import Image from 'next/image'
 
 type Props = {
