@@ -14,7 +14,6 @@ export function FormAmount({
         type="text"
         value={amount}
         onChange={(e) => setAmount(Number(e.target.value))}
-        size={1}
       />
     </form>
   )

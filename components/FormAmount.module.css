@@ -4,7 +4,7 @@
 
 .input {
   all: unset;
-  width: auto;
+  width: 70px;
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   text-align: center;
