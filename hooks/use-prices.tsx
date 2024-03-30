@@ -4,7 +4,7 @@ import { tokens } from '@/constants'
 import { fetcher } from '@/utils'
 import useSWR from 'swr'
 
-export function usePrices() {
+export function usePrices(): { [key: string]: number } {
   const { data: dataPrices } = useSWR(
     `/api/prices/?tokens=${tokens.toString()}`,
     fetcher

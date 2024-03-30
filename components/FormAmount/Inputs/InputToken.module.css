@@ -1,0 +1,17 @@
+.select {
+  display: inline-block;
+  all: unset;
+  padding: 0 0.75rem;
+  padding-right: 1.25rem;
+}
+
+.selectWrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 0.175rem;
+  height: 100%;
+  z-index: -1;
+}

@@ -7,43 +7,50 @@ import {
   tokens
 } from '@/constants'
 import { fetcher, formatNumber } from '@/utils'
-import { FormAmount } from '../FormAmount'
-import { Result } from '../ResultRow'
-import styles from './styles.module.css'
+import { Result } from '@/components/ResultRow'
+import stylesShared from './styles.module.css'
 import { useState } from 'react'
 import useSWR from 'swr'
 import { useDebounce } from 'use-debounce'
 import { usePrices } from '@/hooks'
+import { FormAmount, type Token } from '@/components/FormAmount'
 
 export function Swap() {
   const prices = usePrices()
-  const [amountSwap, setAmountSwap] = useState(100)
-  const [debouncedAmountSwap] = useDebounce(amountSwap, 500)
+  const [amount, setAmount] = useState(100)
+  const [debouncedAmount] = useDebounce(amount, 500)
+  const [token, setToken] = useState<Token>('ocean')
 
   const { data: dataSwapOceanToAgix } = useSWR(
-    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmountSwap}`,
+    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmount}`,
     fetcher
   )
 
   const { data: dataSwapOceanToFet } = useSWR(
-    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmountSwap}`,
+    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmount}`,
     fetcher
   )
 
   return (
-    <div className={styles.results}>
-      <h3>
-        Swapping <FormAmount amount={amountSwap} setAmount={setAmountSwap} />{' '}
-        OCEAN ({formatNumber(debouncedAmountSwap * prices.ocean, 'USD')}) right
-        now gets you:
+    <div className={stylesShared.results}>
+      <h3 className={stylesShared.title}>
+        Swapping{' '}
+        <FormAmount
+          amount={amount}
+          token={token}
+          setAmount={setAmount}
+          // setToken={setToken}
+        />{' '}
+        ({formatNumber(amount * prices[token || 'ocean'], 'USD')}) right now
+        gets you:
       </h3>
 
       <Result
         tokenSymbol="OCEAN"
         tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
-        amount={debouncedAmountSwap}
-        amountAsi={debouncedAmountSwap * ratioOceanToAsi}
-        amountFiat={debouncedAmountSwap * ratioOceanToAsi * prices.asi}
+        amount={debouncedAmount}
+        amountAsi={debouncedAmount * ratioOceanToAsi}
+        amountFiat={debouncedAmount * ratioOceanToAsi * prices.asi}
       />
 
       <Result

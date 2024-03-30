@@ -1,20 +1,26 @@
+import { InputAmount } from '@/components/FormAmount/Inputs/InputAmount'
+import { InputToken } from './Inputs/InputToken'
 import styles from './FormAmount.module.css'
+import { Dispatch, SetStateAction } from 'react'
+import { Token } from './types'
 
 export function FormAmount({
   amount,
-  setAmount
+  setAmount,
+  token,
+  setToken,
+  isFiat
 }: {
   amount: number
-  setAmount: (amount: number) => void
+  setAmount: Dispatch<SetStateAction<number>>
+  token: Token
+  setToken?: Dispatch<SetStateAction<Token>>
+  isFiat?: boolean
 }) {
   return (
     <form className={styles.form}>
-      <input
-        className={styles.input}
-        type="text"
-        value={amount}
-        onChange={(e) => setAmount(Number(e.target.value))}
-      />
+      <InputAmount amount={amount} setAmount={setAmount} />
+      <InputToken token={token} setToken={setToken} isFiat={isFiat} />
     </form>
   )
 }
