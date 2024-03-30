@@ -6,5 +6,41 @@
   margin-bottom: 0;
 }
 
-.amount {
+.conversion {
+  padding-left: calc(24px + 0.5rem);
+}
+
+.logo {
+  margin-right: 0.5rem;
+  margin-top: -0.2rem;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: rgba(var(--foreground-rgb), 0.5);
+}
+
+.logo img {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  filter: grayscale(1);
+}
+
+.logo[data-symbol='AGIX'] img {
+  filter: invert(1) grayscale(1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo[data-symbol='OCEAN'] img,
+  .logo[data-symbol='FET'] img {
+    filter: invert(1) grayscale(1);
+  }
+
+  .logo[data-symbol='AGIX'] img {
+    filter: grayscale(1);
+  }
 }

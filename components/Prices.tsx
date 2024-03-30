@@ -24,12 +24,14 @@ export function Prices() {
     `/api/prices/?tokens=${tokens.toString()}`,
     fetcher
   )
+
   const { data: dataSwapOceanToAgix } = useSWR(
     `/api/quote/?src=${tokens[0]}&dst=${tokens[2]}&amount=${
       debouncedAmountSwap * 1e18
     }`,
     fetcher
   )
+  console.log(dataSwapOceanToAgix)
 
   const { data: dataSwapOceanToFet } = useSWR(
     `/api/quote/?src=${tokens[0]}&dst=${tokens[1]}&amount=${
@@ -49,7 +51,8 @@ export function Prices() {
         <div className={styles.results}>
           <h3>Buying with ${exampleBuyInUsd} right now gets you:</h3>
           <Result
-            symbol="OCEAN"
+            tokenSymbol="OCEAN"
+            tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
             amount={exampleBuyInUsd / priceOcean}
             amountAsi={(exampleBuyInUsd / priceOcean) * ratioOceanToAsi}
             amountFiat={
@@ -57,7 +60,8 @@ export function Prices() {
             }
           />
           <Result
-            symbol="AGIX"
+            tokenSymbol="AGIX"
+            tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
             amount={exampleBuyInUsd / priceAgix}
             amountAsi={(exampleBuyInUsd / priceAgix) * ratioAgixToAsi}
             amountFiat={
@@ -65,7 +69,8 @@ export function Prices() {
             }
           />
           <Result
-            symbol="FET"
+            tokenSymbol="FET"
+            tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
             amount={exampleBuyInUsd / priceFet}
             amountAsi={(exampleBuyInUsd / priceFet) * ratioFetToAsi}
             amountFiat={(exampleBuyInUsd / priceFet) * ratioFetToAsi * priceAsi}
@@ -80,14 +85,16 @@ export function Prices() {
           </h3>
 
           <Result
-            symbol="OCEAN"
+            tokenSymbol="OCEAN"
+            tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
             amount={debouncedAmountSwap}
             amountAsi={debouncedAmountSwap * ratioOceanToAsi}
             amountFiat={debouncedAmountSwap * ratioOceanToAsi * priceAsi}
           />
 
           <Result
-            symbol="AGIX"
+            tokenSymbol="AGIX"
+            tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
             amount={
               dataSwapOceanToAgix?.dstAmount /
                 Number(`1e${dataSwapOceanToAgix?.dstToken?.decimals}`) || 0
@@ -106,7 +113,8 @@ export function Prices() {
           />
 
           <Result
-            symbol="FET"
+            tokenSymbol="FET"
+            tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
             amount={
               dataSwapOceanToFet?.dstAmount /
                 Number(`1e${dataSwapOceanToFet?.dstToken?.decimals}`) || 0

@@ -1,18 +1,37 @@
 import styles from './Result.module.css'
 import { formatNumber } from '../utils'
+import Image from 'next/image'
 
 type Props = {
-  symbol: string
+  tokenSymbol: string
+  tokenAddress: string
   amount: number
   amountAsi: number
   amountFiat: number
 }
 
-export function Result({ symbol, amount, amountAsi, amountFiat }: Props) {
+export function Result({
+  tokenSymbol,
+  tokenAddress,
+  amount,
+  amountAsi,
+  amountFiat
+}: Props) {
   return (
     <div className={styles.result}>
-      <p>{formatNumber(amount, symbol)}</p>
       <p>
+        <span className={styles.logo} data-symbol={tokenSymbol}>
+          <Image
+            src={`https://tokens.1inch.io/${tokenAddress}.png`}
+            width={24}
+            height={24}
+            alt={tokenSymbol}
+          />
+        </span>
+
+        {formatNumber(amount, tokenSymbol)}
+      </p>
+      <p className={styles.conversion}>
         →{' '}
         <strong title={`${amountAsi}`}>{formatNumber(amountAsi, 'ASI')}</strong>{' '}
         = <strong>{formatNumber(amountFiat, 'USD')}</strong>
