@@ -1,7 +1,10 @@
+'use client'
+
 import { Dispatch, SetStateAction } from 'react'
 import styles from './InputToken.module.css'
 import { CaretDownIcon } from '@radix-ui/react-icons'
 import { TokenSymbol } from '@/types'
+import { useSWRConfig } from 'swr'
 
 export function InputToken({
   token,
@@ -12,13 +15,18 @@ export function InputToken({
   isFiat?: boolean
   setToken?: Dispatch<SetStateAction<TokenSymbol>>
 }) {
+  const { mutate } = useSWRConfig()
+
   return (
     <span className={styles.selectWrapper}>
       <select
         className={styles.select}
-        onChange={(e) =>
-          setToken ? setToken(e.target.value as TokenSymbol) : null
-        }
+        onChange={(e) => {
+          if (!setToken) return
+
+          setToken(e.target.value as TokenSymbol)
+          mutate('/api/quote')
+        }}
         value={token}
         disabled={!setToken}
         style={setToken ? { paddingRight: '1.25rem' } : {}}

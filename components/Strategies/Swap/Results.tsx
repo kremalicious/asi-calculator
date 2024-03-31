@@ -1,97 +1,115 @@
 import { Result } from '@/components/ResultRow'
-import {
-  ratioOceanToAsi,
-  ratioAgixToAsi,
-  ratioFetToAsi,
-  tokens
-} from '@/constants'
+import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import { usePrices } from '@/hooks'
-import { fetcher, getTokenBySymbol } from '@/utils'
+import { fetcher, getTokenAddressBySymbol, getTokenBySymbol } from '@/utils'
 import useSWR from 'swr'
 import { TokenSymbol } from '@/types'
 
 export function SwapResults({
-  token,
+  tokenSymbol,
   amount
 }: {
-  token: TokenSymbol
+  tokenSymbol: TokenSymbol
   amount: number
 }) {
   const { prices, isValidating: isValidatingPrices } = usePrices()
-  const { data: dataSwapOceanToAgix, isValidating: isValidatingOceanToAgix } =
-    useSWR(
-      `/api/quote/?tokenIn=${tokens[0].address}&tokenOut=${tokens[2].address}&amountIn=${amount}`,
-      fetcher
-    )
 
-  const { data: dataSwapOceanToFet, isValidating: isValidatingOceanToFet } =
-    useSWR(
-      `/api/quote/?tokenIn=${tokens[0].address}&tokenOut=${tokens[1].address}&amountIn=${amount}`,
-      fetcher
-    )
+  // -> AGIX
+  const { data: dataSwapToAgix, isValidating: isValidatingToAgix } = useSWR(
+    `/api/quote/?tokenIn=${getTokenAddressBySymbol(
+      tokenSymbol
+    )}&tokenOut=${getTokenAddressBySymbol('AGIX')}&amountIn=${amount}`,
+    fetcher
+  )
+
+  // -> FET
+  const { data: dataSwapToFet, isValidating: isValidatingToFet } = useSWR(
+    `/api/quote/?tokenIn=${getTokenAddressBySymbol(
+      tokenSymbol
+    )}&tokenOut=${getTokenAddressBySymbol('FET')}&amountIn=${amount}`,
+    fetcher
+  )
+
+  // -> OCEAN
+  const { data: dataSwapToOcean, isValidating: isValidatingToOcean } = useSWR(
+    `/api/quote/?tokenIn=${getTokenAddressBySymbol(
+      tokenSymbol
+    )}&tokenOut=${getTokenAddressBySymbol('OCEAN')}&amountIn=${amount}`,
+    fetcher
+  )
 
   return (
     <>
       <Result
         token={getTokenBySymbol('OCEAN')}
-        amount={amount}
-        amountAsi={amount * ratioOceanToAsi}
-        amountFiat={amount * ratioOceanToAsi * prices.asi}
+        amount={
+          dataSwapToOcean?.amountOut / Number(`1e${dataSwapToOcean?.decimals}`)
+        }
+        amountAsi={
+          (dataSwapToOcean?.amountOut /
+            Number(`1e${dataSwapToOcean?.decimals}`)) *
+          ratioOceanToAsi
+        }
+        amountFiat={
+          (dataSwapToOcean?.amountOut /
+            Number(`1e${dataSwapToOcean?.decimals}`)) *
+          ratioOceanToAsi *
+          prices.asi
+        }
         amountOriginalFiat={
-          token
-            ? amount *
-              prices[token.toLowerCase() as 'ocean' | 'agix' | 'fet' | 'asi']
+          tokenSymbol
+            ? (dataSwapToOcean?.amountOut /
+                Number(`1e${dataSwapToOcean?.decimals}`)) *
+              prices[
+                tokenSymbol.toLowerCase() as 'ocean' | 'agix' | 'fet' | 'asi'
+              ]
             : undefined
         }
-        isValidating={
-          isValidatingOceanToAgix ||
-          isValidatingOceanToFet ||
-          isValidatingPrices
-        }
+        isValidating={isValidatingToOcean || isValidatingPrices}
       />
 
       <Result
         token={getTokenBySymbol('AGIX')}
         amount={
-          dataSwapOceanToAgix?.amountOut /
-            Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0
+          dataSwapToAgix?.amountOut / Number(`1e${dataSwapToAgix?.decimals}`)
         }
         amountAsi={
-          (dataSwapOceanToAgix?.amountOut /
-            Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) * ratioAgixToAsi
+          (dataSwapToAgix?.amountOut /
+            Number(`1e${dataSwapToAgix?.decimals}`)) *
+          ratioAgixToAsi
         }
         amountFiat={
-          (dataSwapOceanToAgix?.amountOut /
-            Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) *
+          (dataSwapToAgix?.amountOut /
+            Number(`1e${dataSwapToAgix?.decimals}`)) *
           ratioAgixToAsi *
           prices.asi
         }
         amountOriginalFiat={
-          (dataSwapOceanToAgix?.amountOut /
-            Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) * prices.agix
+          (dataSwapToAgix?.amountOut /
+            Number(`1e${dataSwapToAgix?.decimals}`)) *
+          prices.agix
         }
-        isValidating={isValidatingOceanToAgix || isValidatingPrices}
+        isValidating={isValidatingToAgix || isValidatingPrices}
       />
 
       <Result
         token={getTokenBySymbol('FET')}
         amount={
-          dataSwapOceanToFet?.amountOut /
-            Number(`1e${dataSwapOceanToFet?.decimals}`) || 0
+          dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)
         }
         amountAsi={
-          (dataSwapOceanToFet?.amountOut /
-            Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * ratioFetToAsi
+          (dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)) *
+          ratioFetToAsi
         }
         amountFiat={
-          (dataSwapOceanToFet?.amountOut /
-            Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * prices.asi
+          (dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)) *
+          prices.asi
         }
         amountOriginalFiat={
-          (dataSwapOceanToFet?.amountOut /
-            Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * prices.asi
+          (dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)) *
+          prices.asi
         }
-        isValidating={isValidatingOceanToFet || isValidatingPrices}
+        isValidating={isValidatingToFet || isValidatingPrices}
       />
     </>
   )

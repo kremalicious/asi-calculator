@@ -10,7 +10,7 @@ import { TokenSymbol } from '@/types'
 export function Swap() {
   const [amount, setAmount] = useState(100)
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [token, setToken] = useState<TokenSymbol>('OCEAN')
+  const [tokenSymbol, setTokenSymbol] = useState<TokenSymbol>('OCEAN')
 
   return (
     <div className={stylesShared.results}>
@@ -18,14 +18,14 @@ export function Swap() {
         Holding or swapping{' '}
         <FormAmount
           amount={amount}
-          token={token}
+          token={tokenSymbol}
           setAmount={setAmount}
-          setToken={setToken}
+          setToken={setTokenSymbol}
         />{' '}
         right now gets you:
       </h3>
 
-      <SwapResults token={token} amount={debouncedAmount} />
+      <SwapResults tokenSymbol={tokenSymbol} amount={debouncedAmount} />
     </div>
   )
 }
