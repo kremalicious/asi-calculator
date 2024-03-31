@@ -3,30 +3,37 @@
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import styles from './CalculationBase.module.css'
 import { usePrices } from '@/hooks'
+import { Label } from '../Label'
 
 export function CalculationBase() {
-  const { prices } = usePrices()
+  const { prices, isValidating } = usePrices()
 
   return (
     <ul className={styles.calculationBase}>
       <li>
-        1 ASI
-        <br />= ${prices.asi}
+        <p>1 ASI</p>
+        <p className={isValidating ? 'isValidating' : ''}>= ${prices.asi}</p>
       </li>
       <li>
-        1 Fet = {ratioFetToAsi} ASI
-        <span className={styles.label}>fixed</span>
-        <br />= ${prices.fet}
+        <p>
+          1 Fet = {ratioFetToAsi} ASI
+          <Label>fixed</Label>
+        </p>
+        <p className={isValidating ? 'isValidating' : ''}>= ${prices.fet}</p>
       </li>
       <li>
-        1 OCEAN = {ratioOceanToAsi} ASI
-        <span className={styles.label}>fixed</span>
-        <br />= ${prices.ocean}
+        <p>
+          1 OCEAN = {ratioOceanToAsi} ASI
+          <Label>fixed</Label>
+        </p>
+        <p className={isValidating ? 'isValidating' : ''}>= ${prices.ocean}</p>
       </li>
       <li>
-        1 AGIX = {ratioAgixToAsi} ASI
-        <span className={styles.label}>fixed</span>
-        <br />= ${prices.agix}
+        <p>
+          1 AGIX = {ratioAgixToAsi} ASI
+          <Label>fixed</Label>
+        </p>
+        <p className={isValidating ? 'isValidating' : ''}>= ${prices.agix}</p>
       </li>
     </ul>
   )

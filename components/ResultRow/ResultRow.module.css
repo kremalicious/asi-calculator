@@ -15,11 +15,6 @@
   gap: 0.5rem;
   align-items: center;
   width: 100%;
-  margin-bottom: 0.25rem;
-}
-
-.resultLine:last-child {
-  margin-bottom: 0;
 }
 
 .fiat {
@@ -61,21 +56,5 @@
 
   .logo[data-symbol='AGIX'] img {
     filter: grayscale(1);
-  }
-}
-
-.isValidating {
-  animation: flicker 2s infinite ease-out forwards;
-}
-
-@keyframes flicker {
-  0% {
-    opacity: 0.25;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.25;
   }
 }

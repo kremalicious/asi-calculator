@@ -24,11 +24,7 @@ export function Result({
 }: Props) {
   return (
     <div className={styles.result}>
-      <div
-        className={`${styles.resultLine} ${
-          isValidating ? styles.isValidating : ''
-        }`}
-      >
+      <div className={styles.resultLine}>
         <span className={styles.logo} data-symbol={tokenSymbol}>
           <Image
             src={`https://tokens.1inch.io/${tokenAddress}.png`}
@@ -38,7 +34,9 @@ export function Result({
           />
         </span>
 
-        <span>{formatNumber(amount || 0, tokenSymbol)}</span>
+        <span className={isValidating ? 'isValidating' : ''}>
+          {formatNumber(amount || 0, tokenSymbol)}
+        </span>
 
         {amountOriginalFiat ? (
           <span className={styles.fiat}>
@@ -46,16 +44,17 @@ export function Result({
           </span>
         ) : null}
       </div>
-      <div
-        className={`${styles.resultLine} ${
-          isValidating ? styles.isValidating : ''
-        }`}
-      >
+      <div className={styles.resultLine}>
         <ArrowRightIcon className={styles.iconArrow} />
-        <strong title={`${amountAsi}`}>
+        <strong
+          title={`${amountAsi}`}
+          className={isValidating ? 'isValidating' : ''}
+        >
           {formatNumber(amountAsi || 0, 'ASI')}
         </strong>
-        <strong className={styles.fiat}>
+        <strong
+          className={`${styles.fiat} ${isValidating ? 'isValidating' : ''}`}
+        >
           {formatNumber(amountFiat || 0, 'USD')}
         </strong>
       </div>

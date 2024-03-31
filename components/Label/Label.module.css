@@ -1,0 +1,8 @@
+.label {
+  font-size: 0.65rem;
+  color: rgba(var(--foreground-rgb), 0.6);
+  border: 1px solid rgba(var(--foreground-rgb), 0.15);
+  border-radius: var(--border-radius);
+  padding: 0.05rem 0.3rem;
+  margin: 0 0.2rem;
+}

@@ -36,7 +36,7 @@ export function Swap() {
   return (
     <div className={stylesShared.results}>
       <h3 className={stylesShared.title}>
-        Swapping{' '}
+        Holding or swapping{' '}
         <FormAmount
           amount={amount}
           token={token}

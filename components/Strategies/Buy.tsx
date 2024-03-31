@@ -1,7 +1,7 @@
 'use client'
 
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import { Result } from '../ResultRow'
+import { Result } from '@/components/ResultRow'
 import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import stylesShared from './styles.module.css'
@@ -9,7 +9,7 @@ import { usePrices } from '@/hooks'
 import { FormAmount } from '@/components/FormAmount'
 
 export function Buy() {
-  const { prices, isValidating } = usePrices()
+  const { prices, isValidating, isLoading } = usePrices()
   const [amount, setAmount] = useState(100)
   const [debouncedAmount] = useDebounce(amount, 500)
 

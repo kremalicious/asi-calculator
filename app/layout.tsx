@@ -1,13 +1,6 @@
 import type { Metadata } from 'next'
-import {
-  Fira_Code,
-  Space_Grotesk,
-  Jost,
-  Fira_Sans,
-  Inter,
-  Hanken_Grotesk
-} from 'next/font/google'
-import './globals.css'
+import { Hanken_Grotesk } from 'next/font/google'
+import '@/styles/globals.css'
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
