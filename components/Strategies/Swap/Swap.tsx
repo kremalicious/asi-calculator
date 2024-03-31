@@ -20,7 +20,7 @@ export function Swap() {
           amount={amount}
           token={token}
           setAmount={setAmount}
-          // setToken={setToken}
+          setToken={setToken}
         />{' '}
         right now gets you:
       </h3>

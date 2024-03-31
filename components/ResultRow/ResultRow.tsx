@@ -1,11 +1,11 @@
 import styles from './ResultRow.module.css'
 import { formatNumber } from '@/utils'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
-import Image from 'next/image'
+import { TokenLogo } from '../TokenLogo/TokenLogo'
+import { Token } from '@/types'
 
 type Props = {
-  tokenSymbol: string
-  tokenAddress: string
+  token: Token | undefined
   amount: number
   amountAsi: number
   amountFiat: number
@@ -14,8 +14,7 @@ type Props = {
 }
 
 export function Result({
-  tokenSymbol,
-  tokenAddress,
+  token,
   amount,
   amountAsi,
   amountFiat,
@@ -25,17 +24,10 @@ export function Result({
   return (
     <div className={styles.result}>
       <div className={styles.resultLine}>
-        <span className={styles.logo} data-symbol={tokenSymbol}>
-          <Image
-            src={`https://tokens.1inch.io/${tokenAddress}.png`}
-            width={24}
-            height={24}
-            alt={tokenSymbol}
-          />
-        </span>
+        <TokenLogo token={token} />
 
         <span className={isValidating ? 'isValidating' : ''}>
-          {formatNumber(amount || 0, tokenSymbol)}
+          {formatNumber(amount || 0, token?.symbol || '')}
         </span>
 
         {amountOriginalFiat ? (

@@ -6,7 +6,7 @@ import {
   tokens
 } from '@/constants'
 import { usePrices } from '@/hooks'
-import { fetcher } from '@/utils'
+import { fetcher, getTokenBySymbol } from '@/utils'
 import useSWR from 'swr'
 import { TokenSymbol } from '@/types'
 
@@ -33,8 +33,7 @@ export function SwapResults({
   return (
     <>
       <Result
-        tokenSymbol="OCEAN"
-        tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
+        token={getTokenBySymbol('OCEAN')}
         amount={amount}
         amountAsi={amount * ratioOceanToAsi}
         amountFiat={amount * ratioOceanToAsi * prices.asi}
@@ -52,8 +51,7 @@ export function SwapResults({
       />
 
       <Result
-        tokenSymbol="AGIX"
-        tokenAddress="0x5b7533812759b45c2b44c19e320ba2cd2681b542"
+        token={getTokenBySymbol('AGIX')}
         amount={
           dataSwapOceanToAgix?.amountOut /
             Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0
@@ -76,8 +74,7 @@ export function SwapResults({
       />
 
       <Result
-        tokenSymbol="FET"
-        tokenAddress="0xaea46a60368a7bd060eec7df8cba43b7ef41ad85"
+        token={getTokenBySymbol('FET')}
         amount={
           dataSwapOceanToFet?.amountOut /
             Number(`1e${dataSwapOceanToFet?.decimals}`) || 0
