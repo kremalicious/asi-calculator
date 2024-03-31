@@ -1,0 +1,22 @@
+.footer {
+  flex-shrink: 0;
+  font-size: 0.8rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 3rem auto 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(var(--foreground-rgb), 0.2);
+  color: rgba(var(--foreground-rgb), 0.6);
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer a {
+  color: rgba(var(--foreground-rgb), 0.8);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

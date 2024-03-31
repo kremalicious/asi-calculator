@@ -1,0 +1,15 @@
+.title,
+.description {
+  color: rgb(var(--foreground-rgb-highlight));
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.title {
+  font-size: clamp(1.3rem, 10vw, 2.5rem);
+  margin-top: 5vh;
+}
+
+.description {
+  font-size: clamp(1.1rem, 10vw, 1.5rem);
+}

@@ -1,16 +1,15 @@
 import styles from './page.module.css'
-import { metadata } from './layout'
 import { Swap, Buy } from '@/components/Strategies'
 import { Content } from '@/components/Content'
 import { CalculationBase } from '@/components/CalculationBaseOutput'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 export default function Home() {
   return (
     <>
-      <header>
-        <h1 className={styles.title}>{`${metadata.title}`}</h1>
-        <p className={styles.description}>{`${metadata.description}`}</p>
-      </header>
+      <Header />
+
       <main className={styles.main}>
         <section className={styles.breakout}>
           <div className={styles.grid}>
@@ -22,9 +21,8 @@ export default function Home() {
 
         <Content />
       </main>
-      <footer className={styles.footer}>
-        Send ❤️ and memecoins to krema.eth
-      </footer>
+
+      <Footer />
     </>
   )
 }

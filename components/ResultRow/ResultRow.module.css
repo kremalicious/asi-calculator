@@ -1,18 +1,25 @@
 .result {
   margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
 }
 
 .result:last-child {
   margin-bottom: 0;
+  border-bottom: none;
 }
 
 .resultLine {
   display: inline-grid;
-  grid-template-columns: 24px 1fr 2fr;
+  grid-template-columns: 24px 2fr 3fr;
   gap: 0.5rem;
   align-items: center;
   width: 100%;
   margin-bottom: 0.25rem;
+}
+
+.resultLine:last-child {
+  margin-bottom: 0;
 }
 
 .fiat {

@@ -2,22 +2,6 @@
   flex: 1 0 auto;
 }
 
-.title,
-.description {
-  color: rgb(var(--foreground-rgb-highlight));
-  max-width: var(--max-width);
-  margin: auto;
-}
-
-.title {
-  font-size: clamp(1.3rem, 10vw, 2.5rem);
-  margin-top: 5vh;
-}
-
-.description {
-  font-size: clamp(1.1rem, 10vw, 1.5rem);
-}
-
 .grid {
   display: grid;
   gap: 1.5rem;
@@ -32,14 +16,4 @@
 .breakout {
   max-width: calc(var(--max-width) * 1.5);
   margin: 3rem auto;
-}
-
-.footer {
-  flex-shrink: 0;
-  font-size: 0.8rem;
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 3rem auto 0 auto;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(var(--foreground-rgb), 0.2);
 }
