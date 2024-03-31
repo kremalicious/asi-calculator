@@ -1,2 +1,2 @@
 export * from './Buy'
-export * from './Swap'
+export * from './Swap/Swap'

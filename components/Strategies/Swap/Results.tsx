@@ -1,58 +1,49 @@
-'use client'
-
+import { Result } from '@/components/ResultRow'
 import {
   ratioOceanToAsi,
   ratioAgixToAsi,
   ratioFetToAsi,
   tokens
 } from '@/constants'
-import { fetcher } from '@/utils'
-import { Result } from '@/components/ResultRow'
-import stylesShared from './styles.module.css'
-import { useState } from 'react'
-import useSWR from 'swr'
-import { useDebounce } from 'use-debounce'
 import { usePrices } from '@/hooks'
-import { FormAmount, type Token } from '@/components/FormAmount'
+import { fetcher } from '@/utils'
+import useSWR from 'swr'
+import { TokenSymbol } from '@/types'
 
-export function Swap() {
+export function SwapResults({
+  token,
+  amount
+}: {
+  token: TokenSymbol
+  amount: number
+}) {
   const { prices, isValidating: isValidatingPrices } = usePrices()
-  const [amount, setAmount] = useState(100)
-  const [debouncedAmount] = useDebounce(amount, 500)
-  const [token, setToken] = useState<Token>('ocean')
-
   const { data: dataSwapOceanToAgix, isValidating: isValidatingOceanToAgix } =
     useSWR(
-      `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmount}`,
+      `/api/quote/?tokenIn=${tokens[0].address}&tokenOut=${tokens[2].address}&amountIn=${amount}`,
       fetcher
     )
 
   const { data: dataSwapOceanToFet, isValidating: isValidatingOceanToFet } =
     useSWR(
-      `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmount}`,
+      `/api/quote/?tokenIn=${tokens[0].address}&tokenOut=${tokens[1].address}&amountIn=${amount}`,
       fetcher
     )
 
   return (
-    <div className={stylesShared.results}>
-      <h3 className={stylesShared.title}>
-        Holding or swapping{' '}
-        <FormAmount
-          amount={amount}
-          token={token}
-          setAmount={setAmount}
-          // setToken={setToken}
-        />{' '}
-        right now gets you:
-      </h3>
-
+    <>
       <Result
         tokenSymbol="OCEAN"
         tokenAddress="0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
-        amount={debouncedAmount}
-        amountAsi={debouncedAmount * ratioOceanToAsi}
-        amountFiat={debouncedAmount * ratioOceanToAsi * prices.asi}
-        amountOriginalFiat={token ? debouncedAmount * prices[token] : undefined}
+        amount={amount}
+        amountAsi={amount * ratioOceanToAsi}
+        amountFiat={amount * ratioOceanToAsi * prices.asi}
+        amountOriginalFiat={
+          token
+            ? amount *
+              prices[token.toLowerCase() as 'ocean' | 'agix' | 'fet' | 'asi']
+            : undefined
+        }
         isValidating={
           isValidatingOceanToAgix ||
           isValidatingOceanToFet ||
@@ -105,6 +96,6 @@ export function Swap() {
         }
         isValidating={isValidatingOceanToFet || isValidatingPrices}
       />
-    </div>
+    </>
   )
 }

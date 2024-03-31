@@ -2,7 +2,7 @@ import { InputAmount } from '@/components/FormAmount/Inputs/InputAmount'
 import { InputToken } from './Inputs/InputToken'
 import styles from './FormAmount.module.css'
 import { Dispatch, SetStateAction } from 'react'
-import { Token } from './types'
+import { TokenSymbol } from '@/types'
 
 export function FormAmount({
   amount,
@@ -13,8 +13,8 @@ export function FormAmount({
 }: {
   amount: number
   setAmount: Dispatch<SetStateAction<number>>
-  token: Token | string
-  setToken?: Dispatch<SetStateAction<Token>>
+  token: TokenSymbol | string
+  setToken?: Dispatch<SetStateAction<TokenSymbol>>
   isFiat?: boolean
 }) {
   return (

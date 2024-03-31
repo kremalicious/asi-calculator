@@ -3,7 +3,7 @@
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import styles from './CalculationBase.module.css'
 import { usePrices } from '@/hooks'
-import { Label } from '../Label'
+import { Label } from '@/components/Label'
 
 export function CalculationBase() {
   const { prices, isValidating } = usePrices()

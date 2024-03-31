@@ -1,8 +1,8 @@
-'use client'
-
 import { tokens } from '@/constants'
-import { fetcher } from '@/utils'
+import { fetcher, getTokenAddressBySymbol } from '@/utils'
 import useSWR from 'swr'
+
+const tokenAddresses = tokens.map((token) => token.address).toString()
 
 export function usePrices(): {
   prices: { ocean: number; fet: number; agix: number; asi: number }
@@ -10,13 +10,24 @@ export function usePrices(): {
   isLoading: boolean
 } {
   const { data, isValidating, isLoading } = useSWR(
-    `/api/prices/?tokens=${tokens.toString()}`,
+    `/api/prices/?tokens=${tokenAddresses}`,
     fetcher
   )
 
-  const ocean = data?.[tokens[0]]?.usd || 0
-  const fet = data?.[tokens[1]]?.usd || 0
-  const agix = data?.[tokens[2]]?.usd || 0
+  const oceanAddress = getTokenAddressBySymbol('OCEAN')
+  const fetAddress = getTokenAddressBySymbol('FET')
+  const agixAddress = getTokenAddressBySymbol('AGIX')
+
+  if (!oceanAddress || !fetAddress || !agixAddress)
+    return {
+      prices: { ocean: 0, fet: 0, agix: 0, asi: 0 },
+      isValidating,
+      isLoading
+    }
+
+  const ocean = data?.[oceanAddress]?.usd || 0
+  const fet = data?.[fetAddress]?.usd || 0
+  const agix = data?.[agixAddress]?.usd || 0
   const asi = fet
 
   return { prices: { ocean, fet, agix, asi }, isValidating, isLoading }
