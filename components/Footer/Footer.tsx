@@ -5,7 +5,8 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <span>
-        Send ❤️ and memecoins to <a href="">krema.eth</a>
+        Send ❤️ and memecoins to{' '}
+        <a href="https://app.ens.domains/krema.eth">krema.eth</a>
       </span>
 
       <div className={styles.social}>
