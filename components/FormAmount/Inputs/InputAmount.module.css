@@ -1,9 +1,8 @@
 .input {
   all: unset;
-  width: 70px;
+  width: 60px;
   padding: 0 0.2rem;
   text-align: center;
-  background-color: rgba(var(--background-rgb), 0.4);
 }
 
 .input:hover {
@@ -13,19 +12,14 @@
 .input:focus-within {
   outline: none;
   background-color: rgba(var(--background-rgb), 0.9);
-  color: rgb(var(--foreground-rgb-highlight));
 }
 
 @media (prefers-color-scheme: dark) {
-  .input {
-    background-color: rgba(var(--foreground-rgb), 0.15);
-  }
-
   .input:hover {
-    background-color: rgba(var(--foreground-rgb), 0.2);
+    background-color: rgba(var(--foreground-rgb), 0.1);
   }
 
   .input:focus-within {
-    background-color: rgba(var(--foreground-rgb), 0.3);
+    background-color: rgba(var(--foreground-rgb), 0.2);
   }
 }

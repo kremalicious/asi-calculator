@@ -4,7 +4,7 @@ The fiat values are fetched from [Coingecko](https://coingecko.com), and the tok
 
 ### All About Token Merge
 
-Find everything about the token merger in every team's announcement posts:
+You can find all the details about the token merger in every team's announcement post:
 
 - [Ocean Protocol: Ocean Protocol is joining the Superintelligence Alliance](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24)
 - [Fetch.ai: Superintelligence Alliance Token Merge $ASI](https://fetch.ai/blog/superintelligence-alliance-token-merge-asi)

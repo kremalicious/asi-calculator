@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
-import { Fira_Code } from 'next/font/google'
+import {
+  Fira_Code,
+  Space_Grotesk,
+  Jost,
+  Fira_Sans,
+  Inter,
+  Hanken_Grotesk
+} from 'next/font/google'
 import './globals.css'
 
-const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-firaCode' })
+const hankenGrotesk = Hanken_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-hanken-grotesk'
+})
 
 export const metadata: Metadata = {
   title: 'ASI Calculator',
@@ -16,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={firaCode.className}>{children}</body>
+      <body className={hankenGrotesk.variable}>{children}</body>
     </html>
   )
 }

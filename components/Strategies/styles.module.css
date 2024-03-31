@@ -4,9 +4,21 @@
   padding: 1.25rem 1.5rem;
 }
 
+/* .results form {
+  border-color: transparent;
+}
+
+.results input {
+  background: none;
+}
+
+.results:hover form {
+  border-color: rgba(var(--foreground-rgb), 0.2);
+} */
+
 .title {
   margin-bottom: 1.5rem;
   font-size: 1.1rem;
   min-height: 52px;
-  line-height: 1.75;
+  color: rgb(var(--foreground-rgb-highlight));
 }
