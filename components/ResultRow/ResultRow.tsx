@@ -1,5 +1,6 @@
 import styles from './ResultRow.module.css'
 import { formatNumber } from '@/utils'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
 import Image from 'next/image'
 
 type Props = {
@@ -8,6 +9,7 @@ type Props = {
   amount: number
   amountAsi: number
   amountFiat: number
+  amountOriginalFiat?: number
 }
 
 export function Result({
@@ -15,11 +17,12 @@ export function Result({
   tokenAddress,
   amount,
   amountAsi,
-  amountFiat
+  amountFiat,
+  amountOriginalFiat
 }: Props) {
   return (
     <div className={styles.result}>
-      <p>
+      <div className={styles.resultLine}>
         <span className={styles.logo} data-symbol={tokenSymbol}>
           <Image
             src={`https://tokens.1inch.io/${tokenAddress}.png`}
@@ -29,15 +32,23 @@ export function Result({
           />
         </span>
 
-        {formatNumber(amount || 0, tokenSymbol)}
-      </p>
-      <p className={styles.conversion}>
-        →{' '}
+        <span>{formatNumber(amount || 0, tokenSymbol)}</span>
+
+        {amountOriginalFiat ? (
+          <span className={styles.fiat}>
+            {formatNumber(amountOriginalFiat || 0, 'USD')}
+          </span>
+        ) : null}
+      </div>
+      <div className={styles.resultLine}>
+        <ArrowRightIcon className={styles.iconArrow} />
         <strong title={`${amountAsi}`}>
           {formatNumber(amountAsi || 0, 'ASI')}
-        </strong>{' '}
-        = <strong>{formatNumber(amountFiat || 0, 'USD')}</strong>
-      </p>
+        </strong>
+        <strong className={styles.fiat}>
+          {formatNumber(amountFiat || 0, 'USD')}
+        </strong>
+      </div>
     </div>
   )
 }

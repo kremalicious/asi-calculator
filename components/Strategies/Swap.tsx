@@ -6,7 +6,7 @@ import {
   ratioFetToAsi,
   tokens
 } from '@/constants'
-import { fetcher, formatNumber } from '@/utils'
+import { fetcher } from '@/utils'
 import { Result } from '@/components/ResultRow'
 import stylesShared from './styles.module.css'
 import { useState } from 'react'
@@ -41,8 +41,7 @@ export function Swap() {
           setAmount={setAmount}
           // setToken={setToken}
         />{' '}
-        ({formatNumber(amount * prices[token || 'ocean'], 'USD')}) right now
-        gets you:
+        right now gets you:
       </h3>
 
       <Result
@@ -51,6 +50,7 @@ export function Swap() {
         amount={debouncedAmount}
         amountAsi={debouncedAmount * ratioOceanToAsi}
         amountFiat={debouncedAmount * ratioOceanToAsi * prices.asi}
+        amountOriginalFiat={token ? debouncedAmount * prices[token] : undefined}
       />
 
       <Result
@@ -70,6 +70,10 @@ export function Swap() {
           ratioAgixToAsi *
           prices.asi
         }
+        amountOriginalFiat={
+          (dataSwapOceanToAgix?.amountOut /
+            Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) * prices.agix
+        }
       />
 
       <Result
@@ -84,6 +88,10 @@ export function Swap() {
             Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * ratioFetToAsi
         }
         amountFiat={
+          (dataSwapOceanToFet?.amountOut /
+            Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * prices.asi
+        }
+        amountOriginalFiat={
           (dataSwapOceanToFet?.amountOut /
             Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * prices.asi
         }

@@ -6,13 +6,25 @@
   margin-bottom: 0;
 }
 
-.conversion {
-  padding-left: calc(24px + 0.5rem);
+.resultLine {
+  display: inline-grid;
+  grid-template-columns: 24px 1fr 2fr;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.fiat {
+  color: rgba(var(--foreground-rgb), 0.6);
+}
+
+.iconArrow {
+  margin-left: 0.25rem;
 }
 
 .logo {
-  margin-right: 0.5rem;
-  margin-top: -0.2rem;
+  margin-top: -0.15rem;
   vertical-align: middle;
   display: inline-flex;
   align-items: center;
