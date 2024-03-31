@@ -16,20 +16,22 @@ import { usePrices } from '@/hooks'
 import { FormAmount, type Token } from '@/components/FormAmount'
 
 export function Swap() {
-  const prices = usePrices()
+  const { prices, isValidating: isValidatingPrices } = usePrices()
   const [amount, setAmount] = useState(100)
   const [debouncedAmount] = useDebounce(amount, 500)
   const [token, setToken] = useState<Token>('ocean')
 
-  const { data: dataSwapOceanToAgix } = useSWR(
-    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmount}`,
-    fetcher
-  )
+  const { data: dataSwapOceanToAgix, isValidating: isValidatingOceanToAgix } =
+    useSWR(
+      `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[2]}&amountIn=${debouncedAmount}`,
+      fetcher
+    )
 
-  const { data: dataSwapOceanToFet } = useSWR(
-    `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmount}`,
-    fetcher
-  )
+  const { data: dataSwapOceanToFet, isValidating: isValidatingOceanToFet } =
+    useSWR(
+      `/api/quote/?tokenIn=${tokens[0]}&tokenOut=${tokens[1]}&amountIn=${debouncedAmount}`,
+      fetcher
+    )
 
   return (
     <div className={stylesShared.results}>
@@ -51,6 +53,11 @@ export function Swap() {
         amountAsi={debouncedAmount * ratioOceanToAsi}
         amountFiat={debouncedAmount * ratioOceanToAsi * prices.asi}
         amountOriginalFiat={token ? debouncedAmount * prices[token] : undefined}
+        isValidating={
+          isValidatingOceanToAgix ||
+          isValidatingOceanToFet ||
+          isValidatingPrices
+        }
       />
 
       <Result
@@ -74,6 +81,7 @@ export function Swap() {
           (dataSwapOceanToAgix?.amountOut /
             Number(`1e${dataSwapOceanToAgix?.decimals}`) || 0) * prices.agix
         }
+        isValidating={isValidatingOceanToAgix || isValidatingPrices}
       />
 
       <Result
@@ -95,6 +103,7 @@ export function Swap() {
           (dataSwapOceanToFet?.amountOut /
             Number(`1e${dataSwapOceanToFet?.decimals}`) || 0) * prices.asi
         }
+        isValidating={isValidatingOceanToFet || isValidatingPrices}
       />
     </div>
   )

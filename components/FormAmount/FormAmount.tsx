@@ -13,7 +13,7 @@ export function FormAmount({
 }: {
   amount: number
   setAmount: Dispatch<SetStateAction<number>>
-  token: Token
+  token: Token | string
   setToken?: Dispatch<SetStateAction<Token>>
   isFiat?: boolean
 }) {

@@ -9,7 +9,7 @@ import { usePrices } from '@/hooks'
 import { FormAmount } from '@/components/FormAmount'
 
 export function Buy() {
-  const prices = usePrices()
+  const { prices, isValidating } = usePrices()
   const [amount, setAmount] = useState(100)
   const [debouncedAmount] = useDebounce(amount, 500)
 
@@ -32,6 +32,7 @@ export function Buy() {
             ? (debouncedAmount / prices.ocean) * ratioOceanToAsi * prices.asi
             : 0
         }
+        isValidating={isValidating}
       />
       <Result
         tokenSymbol="AGIX"
@@ -45,6 +46,7 @@ export function Buy() {
             ? (debouncedAmount / prices.agix) * ratioAgixToAsi * prices.asi
             : 0
         }
+        isValidating={isValidating}
       />
       <Result
         tokenSymbol="FET"
@@ -58,6 +60,7 @@ export function Buy() {
             ? (debouncedAmount / prices.fet) * ratioFetToAsi * prices.asi
             : 0
         }
+        isValidating={isValidating}
       />
     </div>
   )

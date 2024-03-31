@@ -1,1 +1,1 @@
-export type Token = 'ocean' | 'fet' | 'agix' | 'usd' | undefined
+export type Token = 'ocean' | 'fet' | 'agix' | undefined

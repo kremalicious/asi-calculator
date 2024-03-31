@@ -8,7 +8,7 @@ export function InputToken({
   setToken,
   isFiat
 }: {
-  token: Token
+  token: Token | string
   isFiat?: boolean
   setToken?: Dispatch<SetStateAction<Token>>
 }) {

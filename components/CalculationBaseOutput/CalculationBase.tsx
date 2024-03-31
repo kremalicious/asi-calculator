@@ -5,7 +5,7 @@ import styles from './CalculationBase.module.css'
 import { usePrices } from '@/hooks'
 
 export function CalculationBase() {
-  const prices = usePrices()
+  const { prices } = usePrices()
 
   return (
     <ul className={styles.calculationBase}>

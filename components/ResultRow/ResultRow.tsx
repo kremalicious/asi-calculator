@@ -10,6 +10,7 @@ type Props = {
   amountAsi: number
   amountFiat: number
   amountOriginalFiat?: number
+  isValidating: boolean
 }
 
 export function Result({
@@ -18,11 +19,16 @@ export function Result({
   amount,
   amountAsi,
   amountFiat,
-  amountOriginalFiat
+  amountOriginalFiat,
+  isValidating
 }: Props) {
   return (
     <div className={styles.result}>
-      <div className={styles.resultLine}>
+      <div
+        className={`${styles.resultLine} ${
+          isValidating ? styles.isValidating : ''
+        }`}
+      >
         <span className={styles.logo} data-symbol={tokenSymbol}>
           <Image
             src={`https://tokens.1inch.io/${tokenAddress}.png`}
@@ -40,7 +46,11 @@ export function Result({
           </span>
         ) : null}
       </div>
-      <div className={styles.resultLine}>
+      <div
+        className={`${styles.resultLine} ${
+          isValidating ? styles.isValidating : ''
+        }`}
+      >
         <ArrowRightIcon className={styles.iconArrow} />
         <strong title={`${amountAsi}`}>
           {formatNumber(amountAsi || 0, 'ASI')}
