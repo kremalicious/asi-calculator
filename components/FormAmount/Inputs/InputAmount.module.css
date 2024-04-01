@@ -1,7 +1,6 @@
 .input {
   all: unset;
-  width: 60px;
-  padding: 0 0.2rem;
+  padding: 0 0.75rem;
   text-align: center;
   border-right: 1px solid rgba(var(--foreground-rgb), 0.15);
 }
