@@ -2,10 +2,10 @@ The **→ lines** show what you would get with the displayed token amount at the
 
 All displayed values should be seen as estimates. Except for the [fixed ASI exchange rate](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24#3c8e), all other values are constantly changing based on market conditions. There is no guarantee the displayed values reflect the value of your investment once the actual ASI swap mechanism is released. Use at your own risk.
 
-### All About Token Merge
-
-You can find all the details about the token merger in every team's announcement post:
+You can find all the details about the token merge in every team's announcement post:
 
 - [Ocean Protocol: Ocean Protocol is joining the Superintelligence Alliance](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24)
 - [Fetch.ai: Superintelligence Alliance Token Merge $ASI](https://fetch.ai/blog/superintelligence-alliance-token-merge-asi)
 - [SingularityNET: Introducing the Artificial Superintelligence Alliance](https://blog.singularitynet.io/introducing-the-artificial-superintelligence-alliance-40a4dea01e62)
+
+Any numbers looking wrong or anything missing? [Open an issue](https://github.com/kremalicious/asi-calculator/issues).

@@ -19,7 +19,9 @@ export function CalculationBase() {
       <li>
         <p>1 ASI</p>
         <p>
-          = <span className={feedbackClasses}>${prices.asi}</span>
+          <span className={`${styles.fiat} ${feedbackClasses}`}>
+            ${prices.asi}
+          </span>
         </p>
       </li>
       <li>
@@ -28,7 +30,9 @@ export function CalculationBase() {
           <Label>fixed</Label>
         </p>
         <p>
-          = <span className={feedbackClasses}>${prices.fet}</span>
+          <span className={`${styles.fiat} ${feedbackClasses}`}>
+            ${prices.fet}
+          </span>
         </p>
       </li>
       <li>
@@ -37,7 +41,9 @@ export function CalculationBase() {
           <Label>fixed</Label>
         </p>
         <p>
-          = <span className={feedbackClasses}>${prices.ocean}</span>
+          <span className={`${styles.fiat} ${feedbackClasses}`}>
+            ${prices.ocean}
+          </span>
         </p>
       </li>
       <li>
@@ -46,7 +52,9 @@ export function CalculationBase() {
           <Label>fixed</Label>
         </p>
         <p>
-          = <span className={feedbackClasses}>${prices.agix}</span>
+          <span className={`${styles.fiat} ${feedbackClasses}`}>
+            ${prices.agix}
+          </span>
         </p>
       </li>
     </ul>
