@@ -22,7 +22,7 @@ export function Swap() {
           setAmount={setAmount}
           setToken={setTokenSymbol}
         />{' '}
-        right now gets you:
+        on Uniswap right now gets you:
       </h3>
 
       <SwapResults tokenSymbol={tokenSymbol} amount={debouncedAmount} />
