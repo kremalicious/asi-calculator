@@ -1,6 +1,4 @@
-'use client'
-
-import { Dispatch, SetStateAction, useRef, useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import styles from './InputAmount.module.css'
 
 export function InputAmount({

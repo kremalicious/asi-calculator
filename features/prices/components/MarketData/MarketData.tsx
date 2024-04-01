@@ -1,11 +1,11 @@
 'use client'
 
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import styles from './CalculationBase.module.css'
-import { usePrices } from '@/hooks'
+import styles from './MarketData.module.css'
+import { usePrices } from '@/features/prices/hooks'
 import { Label } from '@/components/Label'
 
-export function CalculationBase() {
+export function MarketData() {
   const { prices, isValidating, isLoading } = usePrices()
 
   const feedbackClasses = isLoading
@@ -15,7 +15,7 @@ export function CalculationBase() {
     : ''
 
   return (
-    <ul className={styles.calculationBase}>
+    <ul className={styles.marketData}>
       <li>
         <p>1 ASI</p>
         <p>

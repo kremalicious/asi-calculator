@@ -1,3 +1,7 @@
+.selectWrapper {
+  position: relative;
+}
+
 .select {
   display: inline-block;
   all: unset;
@@ -21,10 +25,6 @@
   .select:focus-within {
     background-color: rgba(var(--foreground-rgb), 0.2);
   }
-}
-
-.selectWrapper {
-  position: relative;
 }
 
 .icon {

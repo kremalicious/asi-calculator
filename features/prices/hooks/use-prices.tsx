@@ -4,6 +4,13 @@ import useSWR from 'swr'
 
 const tokenAddresses = tokens.map((token) => token.address).toString()
 
+export type Prices = {
+  ocean: number
+  fet: number
+  agix: number
+  asi: number
+}
+
 export function usePrices(): {
   prices: { ocean: number; fet: number; agix: number; asi: number }
   isValidating: boolean

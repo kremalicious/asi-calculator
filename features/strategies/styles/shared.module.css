@@ -9,4 +9,5 @@
   font-size: 1.2rem;
   color: rgb(var(--foreground-rgb-highlight));
   min-height: 58px;
+  line-height: 1.5;
 }
