@@ -18,9 +18,8 @@ export async function GET(request: NextRequest) {
   const tokenOut = searchParams?.get('tokenOut')
   const amountIn = searchParams?.get('amountIn')
 
-  if (!tokenIn || !tokenOut || !amountIn) {
+  if (!tokenIn || !tokenOut || !amountIn)
     return Response.json(null, { status: 400 })
-  }
 
   const url = `${apiUrl}/quote?tokenIn=${tokenIn}&tokenOut=${tokenOut}&amountIn=${amountIn}`
   let data
