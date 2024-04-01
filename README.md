@@ -9,3 +9,5 @@
 ```bash
 npm run dev
 ```
+
+Please note that this requires the environment variable `WEB3_API_URL` to be present. This is a private API so running this project locally probably won't work out.
