@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Hanken_Grotesk } from 'next/font/google'
 import '@/styles/globals.css'
+import '@/styles/loading-ui.css'
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],

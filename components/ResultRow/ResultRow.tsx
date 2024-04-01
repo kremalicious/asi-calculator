@@ -11,6 +11,7 @@ type Props = {
   amountFiat: number
   amountOriginalFiat?: number
   isValidating: boolean
+  isLoading: boolean
 }
 
 export function Result({
@@ -19,36 +20,48 @@ export function Result({
   amountAsi,
   amountFiat,
   amountOriginalFiat,
-  isValidating
+  isValidating,
+  isLoading
 }: Props) {
+  const feedbackClasses = isLoading
+    ? 'isLoading'
+    : isValidating
+    ? 'isValidating'
+    : ''
+
   return (
     <div className={styles.result}>
       <div className={styles.resultLine}>
         <TokenLogo token={token} />
 
-        <span className={isValidating ? 'isValidating' : ''}>
-          {formatNumber(amount || 0, token?.symbol || '')}
-        </span>
+        <p>
+          <span className={feedbackClasses}>
+            {formatNumber(amount || 0, token?.symbol || '')}
+          </span>
+        </p>
 
         {amountOriginalFiat ? (
-          <span className={styles.fiat}>
-            {formatNumber(amountOriginalFiat || 0, 'USD')}
-          </span>
+          <p>
+            <span className={`${styles.fiat} ${feedbackClasses}`}>
+              {formatNumber(amountOriginalFiat || 0, 'USD')}
+            </span>
+          </p>
         ) : null}
       </div>
+
       <div className={styles.resultLine}>
         <ArrowRightIcon className={styles.iconArrow} />
-        <strong
-          title={`${amountAsi}`}
-          className={isValidating ? 'isValidating' : ''}
-        >
-          {formatNumber(amountAsi || 0, 'ASI')}
-        </strong>
-        <strong
-          className={`${styles.fiat} ${isValidating ? 'isValidating' : ''}`}
-        >
-          {formatNumber(amountFiat || 0, 'USD')}
-        </strong>
+
+        <p>
+          <strong title={`${amountAsi}`} className={feedbackClasses}>
+            {formatNumber(amountAsi || 0, 'ASI')}
+          </strong>
+        </p>
+        <p>
+          <strong className={`${styles.fiat} ${feedbackClasses}`}>
+            {formatNumber(amountFiat || 0, 'USD')}
+          </strong>
+        </p>
       </div>
     </div>
   )

@@ -1,0 +1,53 @@
+.isLoading {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(var(--foreground-rgb), 0) 0,
+    rgba(var(--foreground-rgb), 0.1) 50%,
+    rgba(var(--foreground-rgb), 0) 100%
+  ) !important;
+  background-size: 800% 800% !important;
+  color: rgba(0, 0, 0, 0) !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  border-radius: var(--border-radius) !important;
+  user-select: none;
+  cursor: wait;
+  animation: loading 3s infinite ease-out !important;
+}
+
+.isLoading * {
+  visibility: hidden !important;
+}
+
+.isLoading:empty::after,
+.isLoading *:empty::after {
+  content: '\00a0';
+}
+
+@keyframes loading {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.isValidating {
+  animation: flicker 2s infinite ease-out;
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}

@@ -11,7 +11,7 @@
 
 .resultLine {
   display: inline-grid;
-  grid-template-columns: 24px 2fr 3fr;
+  grid-template-columns: 24px 40% 40%;
   gap: 0.5rem;
   align-items: center;
   width: 100%;

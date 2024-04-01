@@ -5,6 +5,10 @@ import { fetcher, getTokenAddressBySymbol, getTokenBySymbol } from '@/utils'
 import useSWR from 'swr'
 import { TokenSymbol } from '@/types'
 
+const options = {
+  keepPreviousData: true // so loading UI can kick in properly
+}
+
 export function SwapResults({
   tokenSymbol,
   amount
@@ -12,30 +16,49 @@ export function SwapResults({
   tokenSymbol: TokenSymbol
   amount: number
 }) {
-  const { prices, isValidating: isValidatingPrices } = usePrices()
+  const {
+    prices,
+    isValidating: isValidatingPrices,
+    isLoading: isLoadingPrices
+  } = usePrices()
 
   // -> AGIX
-  const { data: dataSwapToAgix, isValidating: isValidatingToAgix } = useSWR(
+  const {
+    data: dataSwapToAgix,
+    isValidating: isValidatingToAgix,
+    isLoading: isLoadingToAgix
+  } = useSWR(
     `/api/quote/?tokenIn=${getTokenAddressBySymbol(
       tokenSymbol
     )}&tokenOut=${getTokenAddressBySymbol('AGIX')}&amountIn=${amount}`,
-    fetcher
+    fetcher,
+    options
   )
 
   // -> FET
-  const { data: dataSwapToFet, isValidating: isValidatingToFet } = useSWR(
+  const {
+    data: dataSwapToFet,
+    isValidating: isValidatingToFet,
+    isLoading: isLoadingToFet
+  } = useSWR(
     `/api/quote/?tokenIn=${getTokenAddressBySymbol(
       tokenSymbol
     )}&tokenOut=${getTokenAddressBySymbol('FET')}&amountIn=${amount}`,
-    fetcher
+    fetcher,
+    options
   )
 
   // -> OCEAN
-  const { data: dataSwapToOcean, isValidating: isValidatingToOcean } = useSWR(
+  const {
+    data: dataSwapToOcean,
+    isValidating: isValidatingToOcean,
+    isLoading: isLoadingToOcean
+  } = useSWR(
     `/api/quote/?tokenIn=${getTokenAddressBySymbol(
       tokenSymbol
     )}&tokenOut=${getTokenAddressBySymbol('OCEAN')}&amountIn=${amount}`,
-    fetcher
+    fetcher,
+    options
   )
 
   return (
@@ -66,6 +89,7 @@ export function SwapResults({
             : undefined
         }
         isValidating={isValidatingToOcean || isValidatingPrices}
+        isLoading={isLoadingToOcean || isLoadingPrices}
       />
 
       <Result
@@ -90,6 +114,7 @@ export function SwapResults({
           prices.agix
         }
         isValidating={isValidatingToAgix || isValidatingPrices}
+        isLoading={isLoadingToAgix || isLoadingPrices}
       />
 
       <Result
@@ -110,6 +135,7 @@ export function SwapResults({
           prices.asi
         }
         isValidating={isValidatingToFet || isValidatingPrices}
+        isLoading={isLoadingToFet || isLoadingPrices}
       />
     </>
   )

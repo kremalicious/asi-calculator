@@ -6,34 +6,48 @@ import { usePrices } from '@/hooks'
 import { Label } from '@/components/Label'
 
 export function CalculationBase() {
-  const { prices, isValidating } = usePrices()
+  const { prices, isValidating, isLoading } = usePrices()
+
+  const feedbackClasses = isLoading
+    ? 'isLoading'
+    : isValidating
+    ? 'isValidating'
+    : ''
 
   return (
     <ul className={styles.calculationBase}>
       <li>
         <p>1 ASI</p>
-        <p className={isValidating ? 'isValidating' : ''}>= ${prices.asi}</p>
+        <p>
+          = <span className={feedbackClasses}>${prices.asi}</span>
+        </p>
       </li>
       <li>
         <p>
           1 Fet = {ratioFetToAsi} ASI
           <Label>fixed</Label>
         </p>
-        <p className={isValidating ? 'isValidating' : ''}>= ${prices.fet}</p>
+        <p>
+          = <span className={feedbackClasses}>${prices.fet}</span>
+        </p>
       </li>
       <li>
         <p>
           1 OCEAN = {ratioOceanToAsi} ASI
           <Label>fixed</Label>
         </p>
-        <p className={isValidating ? 'isValidating' : ''}>= ${prices.ocean}</p>
+        <p>
+          = <span className={feedbackClasses}>${prices.ocean}</span>
+        </p>
       </li>
       <li>
         <p>
           1 AGIX = {ratioAgixToAsi} ASI
           <Label>fixed</Label>
         </p>
-        <p className={isValidating ? 'isValidating' : ''}>= ${prices.agix}</p>
+        <p>
+          = <span className={feedbackClasses}>${prices.agix}</span>
+        </p>
       </li>
     </ul>
   )

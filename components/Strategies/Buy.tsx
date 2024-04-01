@@ -10,7 +10,7 @@ import { FormAmount } from '@/components/FormAmount'
 import { getTokenBySymbol } from '@/utils'
 
 export function Buy() {
-  const { prices, isValidating } = usePrices()
+  const { prices, isValidating, isLoading } = usePrices()
   const [amount, setAmount] = useState(100)
   const [debouncedAmount] = useDebounce(amount, 500)
 
@@ -33,6 +33,7 @@ export function Buy() {
             : 0
         }
         isValidating={isValidating}
+        isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('AGIX')}
@@ -46,6 +47,7 @@ export function Buy() {
             : 0
         }
         isValidating={isValidating}
+        isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('FET')}
@@ -59,6 +61,7 @@ export function Buy() {
             : 0
         }
         isValidating={isValidating}
+        isLoading={isLoading}
       />
     </div>
   )

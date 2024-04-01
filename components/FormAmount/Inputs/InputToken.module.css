@@ -1,7 +1,26 @@
 .select {
   display: inline-block;
   all: unset;
-  padding: 0 0.75rem 0 0;
+  padding: 0 0.5rem;
+}
+
+.select:hover:not(.select[disabled]) {
+  background-color: rgba(var(--background-rgb), 0.5);
+}
+
+.select:focus-within {
+  outline: none;
+  background-color: rgba(var(--background-rgb), 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .select:hover:not(.select[disabled]) {
+    background-color: rgba(var(--foreground-rgb), 0.1);
+  }
+
+  .select:focus-within {
+    background-color: rgba(var(--foreground-rgb), 0.2);
+  }
 }
 
 .selectWrapper {
@@ -10,7 +29,8 @@
 
 .icon {
   position: absolute;
-  right: 0.175rem;
+  right: 0.1rem;
+  width: 1em;
   height: 100%;
   z-index: -1;
 }
