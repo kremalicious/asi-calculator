@@ -1,7 +1,7 @@
 import styles from './Result.module.css'
 import { formatNumber } from '@/lib/utils'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
-import { TokenLogo } from '../../../../components/TokenLogo/TokenLogo'
+import { TokenLogo } from '@/components'
 import { Token } from '@/types'
 
 type Props = {

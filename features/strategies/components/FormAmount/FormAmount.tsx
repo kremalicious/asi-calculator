@@ -1,8 +1,7 @@
-import { InputAmount } from './Inputs/InputAmount'
 import styles from './FormAmount.module.css'
 import { Dispatch, SetStateAction } from 'react'
 import { TokenSymbol } from '@/types'
-import { Select } from '@/components/Select'
+import { Select, Input } from '@/components'
 
 export function FormAmount({
   amount,
@@ -17,6 +16,16 @@ export function FormAmount({
   setToken?: Dispatch<SetStateAction<TokenSymbol>>
   isFiat?: boolean
 }) {
+  function handleAmountChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = e.target
+
+    if (value === '') {
+      setAmount(0)
+    } else {
+      setAmount(Number(value))
+    }
+  }
+
   function handleTokenChange(e: React.ChangeEvent<HTMLSelectElement>) {
     if (!setToken) return
     setToken(e.target.value as TokenSymbol)
@@ -32,7 +41,16 @@ export function FormAmount({
 
   return (
     <form className={styles.form}>
-      <InputAmount amount={amount} setAmount={setAmount} />
+      <Input
+        type="text"
+        inputMode="numeric"
+        pattern="[0-9]*"
+        value={amount}
+        onChange={handleAmountChange}
+        style={{
+          width: Math.min(Math.max(amount.toString().length, 2), 50) + 'ch'
+        }}
+      />
 
       <Select
         options={options}

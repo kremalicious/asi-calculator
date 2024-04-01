@@ -2,8 +2,8 @@
 
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import styles from './MarketData.module.css'
-import { usePrices } from '@/features/prices/hooks'
-import { Label } from '@/components/Label'
+import { usePrices } from '@/features/prices'
+import { Label } from '@/components'
 
 export function MarketData() {
   const { prices, isValidating, isLoading } = usePrices()

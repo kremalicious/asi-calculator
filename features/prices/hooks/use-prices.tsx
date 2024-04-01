@@ -1,3 +1,5 @@
+'use client'
+
 import { tokens } from '@/constants'
 import { fetcher, getTokenAddressBySymbol } from '@/lib/utils'
 import useSWR from 'swr'

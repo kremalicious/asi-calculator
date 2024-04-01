@@ -1,6 +1,6 @@
 import styles from './FormMarket.module.css'
 import { Dispatch, SetStateAction } from 'react'
-import { Select } from '@/components/Select'
+import { Select } from '@/components'
 import { type Market } from '@/features/strategies'
 
 export function FormMarket({
