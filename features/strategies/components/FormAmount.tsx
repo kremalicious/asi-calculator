@@ -1,7 +1,6 @@
-import styles from './FormAmount.module.css'
 import { Dispatch, SetStateAction } from 'react'
 import { TokenSymbol } from '@/types'
-import { Select, Input } from '@/components'
+import { Select, Input, FormInline } from '@/components'
 
 export function FormAmount({
   amount,
@@ -40,7 +39,7 @@ export function FormAmount({
       ]
 
   return (
-    <form className={styles.form}>
+    <FormInline>
       <Input
         type="text"
         inputMode="numeric"
@@ -59,6 +58,6 @@ export function FormAmount({
         disabled={!setToken}
         style={setToken ? { paddingRight: '1.25rem' } : {}}
       />
-    </form>
+    </FormInline>
   )
 }

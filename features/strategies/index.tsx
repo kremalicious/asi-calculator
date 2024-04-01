@@ -1,4 +1,3 @@
-export * from './components/Buy'
-export * from './components/Swap'
+export * from './components'
 export * from './hooks'
 export * from './types'

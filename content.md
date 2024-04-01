@@ -1,6 +1,6 @@
 The **→ lines** show what you would get with the displayed token amount at the moment of the ASI swap, along with the converted value based on the current market price of FET.
 
-The fiat values are fetched from [Coingecko](https://coingecko.com), and the token swap estimations directly from [Uniswap](https://uniswap.org) v3 swap routes.
+The fiat values are fetched from [Coingecko](https://coingecko.com) and used to calculate the _All Markets_ scenario. The token swap estimations for Uniswap are fetched directly from [Uniswap](https://uniswap.org) v3 swap routes.
 
 All displayed values should be seen as estimates. Except for the [fixed ASI exchange rate](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24#3c8e), all other values are constantly changing based on market conditions. There is no guarantee the displayed values reflect the value of your investment once the actual ASI swap mechanism is released. Use at your own risk.
 

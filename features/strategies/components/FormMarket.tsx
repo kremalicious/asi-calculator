@@ -1,6 +1,5 @@
-import styles from './FormMarket.module.css'
 import { Dispatch, SetStateAction } from 'react'
-import { Select } from '@/components'
+import { Select, FormInline } from '@/components'
 import { type Market } from '@/features/strategies'
 
 export function FormMarket({
@@ -15,13 +14,13 @@ export function FormMarket({
     { value: 'uniswap-v3', label: 'Uniswap v3' }
   ]
   return (
-    <form className={styles.form}>
+    <FormInline>
       <Select
         options={options}
         value={market}
         onChange={(e) => setMarket(e.target.value as Market)}
         style={{ paddingRight: '1.25rem' }}
       />
-    </form>
+    </FormInline>
   )
 }

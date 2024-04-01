@@ -1,5 +1,6 @@
 export * from './Content'
 export * from './Footer'
+export * from './FormInline'
 export * from './Header'
 export * from './Input'
 export * from './Label'

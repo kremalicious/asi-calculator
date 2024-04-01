@@ -6,20 +6,10 @@
 }
 
 .input:hover {
-  background-color: rgba(var(--background-rgb), 0.5);
+  background-color: rgba(var(--background-rgb), 0.1);
 }
 
 .input:focus-within {
   outline: none;
-  background-color: rgba(var(--background-rgb), 0.9);
-}
-
-@media (prefers-color-scheme: dark) {
-  .input:hover {
-    background-color: rgba(var(--foreground-rgb), 0.1);
-  }
-
-  .input:focus-within {
-    background-color: rgba(var(--foreground-rgb), 0.2);
-  }
+  background-color: rgba(var(--background-rgb), 0.3);
 }
