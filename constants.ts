@@ -1,5 +1,9 @@
 import { Token } from '@/types'
 
+export const title = 'ASI Calculator'
+export const description =
+  'See how much ASI you get for your OCEAN, AGIX, or FET.'
+
 export const ratioOceanToAsi = 0.433226
 export const ratioAgixToAsi = 0.43335
 export const ratioFetToAsi = 1

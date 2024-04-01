@@ -1,0 +1,26 @@
+.marketData {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  justify-content: center;
+  border-top: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-left: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-bottom: none;
+  border-radius: var(--border-radius);
+  margin-top: 1.5rem;
+}
+
+.marketData li {
+  border-bottom: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-right: 1px solid rgba(var(--foreground-rgb), 0.2);
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+.marketData p {
+  display: flex;
+  align-items: center;
+}
+
+.fiat {
+  color: var(--text-dimmed);
+}

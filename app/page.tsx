@@ -1,9 +1,7 @@
 import styles from './page.module.css'
-import { Swap, Buy } from '@/components/Strategies'
-import { Content } from '@/components/Content'
-import { CalculationBase } from '@/components/CalculationBaseOutput'
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
+import { Swap, Buy } from '@/features/strategies'
+import { MarketData } from '@/features/prices'
+import { Content, Footer, Header } from '@/components'
 
 export default function Home() {
   return (
@@ -16,7 +14,7 @@ export default function Home() {
             <Swap />
             <Buy />
           </div>
-          <CalculationBase />
+          <MarketData />
         </section>
 
         <Content />

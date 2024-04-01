@@ -3,16 +3,14 @@ import { Hanken_Grotesk } from 'next/font/google'
 import '@/styles/globals.css'
 import '@/styles/loading-ui.css'
 import Script from 'next/script'
+import { title, description } from '@/constants'
 
 const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-hanken-grotesk'
 })
 
-export const metadata: Metadata = {
-  title: 'ASI Calculator',
-  description: 'See how much ASI you get for your OCEAN, AGIX, or FET.'
-}
+export const metadata: Metadata = { title, description }
 
 export default function RootLayout({
   children
