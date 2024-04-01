@@ -1,7 +1,13 @@
 .results {
   border: 1px solid rgba(var(--foreground-rgb), 0.2);
   border-radius: var(--border-radius);
-  padding: 1.5rem 2rem;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 40rem) {
+  .results {
+    padding: 1.5rem 2rem;
+  }
 }
 
 .title {
