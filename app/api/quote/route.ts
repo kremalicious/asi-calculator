@@ -4,14 +4,6 @@ export const runtime = 'edge'
 
 const apiUrl = process.env.WEB3_API_URL
 
-const config: RequestInit = {
-  headers: {
-    'content-type': 'application/json'
-  },
-  method: 'GET',
-  next: { revalidate: 30 }
-}
-
 export async function GET(request: NextRequest) {
   const searchParams = request?.nextUrl?.searchParams
   const tokenIn = searchParams?.get('tokenIn')
@@ -26,7 +18,7 @@ export async function GET(request: NextRequest) {
   let status
 
   try {
-    const res = await fetch(url, config)
+    const res = await fetch(url)
     const json = await res.json()
 
     data = json

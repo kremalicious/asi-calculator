@@ -7,7 +7,7 @@ import { useDebounce } from 'use-debounce'
 import stylesShared from './styles.module.css'
 import { usePrices } from '@/hooks'
 import { FormAmount } from '@/components/FormAmount'
-import { getTokenBySymbol } from '@/utils'
+import { getTokenBySymbol } from '@/lib/utils'
 
 export function Buy() {
   const { prices, isValidating, isLoading } = usePrices()

@@ -1,7 +1,7 @@
 import { Result } from '@/components/ResultRow'
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import { usePrices } from '@/hooks'
-import { getTokenBySymbol } from '@/utils'
+import { getTokenBySymbol } from '@/lib/utils'
 import { TokenSymbol } from '@/types'
 import { useQuote } from '@/hooks'
 

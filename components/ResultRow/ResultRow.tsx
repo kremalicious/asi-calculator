@@ -1,5 +1,5 @@
 import styles from './ResultRow.module.css'
-import { formatNumber } from '@/utils'
+import { formatNumber } from '@/lib/utils'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { TokenLogo } from '../TokenLogo/TokenLogo'
 import { Token } from '@/types'

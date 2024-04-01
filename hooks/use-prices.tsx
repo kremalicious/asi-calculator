@@ -1,5 +1,5 @@
 import { tokens } from '@/constants'
-import { fetcher, getTokenAddressBySymbol } from '@/utils'
+import { fetcher, getTokenAddressBySymbol } from '@/lib/utils'
 import useSWR from 'swr'
 
 const tokenAddresses = tokens.map((token) => token.address).toString()

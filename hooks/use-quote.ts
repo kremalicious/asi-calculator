@@ -1,5 +1,5 @@
 import { TokenSymbol } from '@/types'
-import { getTokenAddressBySymbol, fetcher } from '@/utils'
+import { getTokenAddressBySymbol, fetcher } from '@/lib/utils'
 import useSWR from 'swr'
 
 const options = {
