@@ -37,7 +37,9 @@ export function MarketData() {
       </li>
       <li>
         <p>
-          1 OCEAN = {ratioOceanToAsi} ASI
+          1 OCEAN ={' '}
+          <span title={`${ratioOceanToAsi}`}>{ratioOceanToAsi.toFixed(6)}</span>{' '}
+          ASI
           <Label>fixed</Label>
         </p>
         <p>
@@ -48,7 +50,9 @@ export function MarketData() {
       </li>
       <li>
         <p>
-          1 AGIX = {ratioAgixToAsi} ASI
+          1 AGIX ={' '}
+          <span title={`${ratioAgixToAsi}`}>{ratioAgixToAsi.toFixed(5)}</span>{' '}
+          ASI
           <Label>fixed</Label>
         </p>
         <p>

@@ -16,11 +16,6 @@
   font-size: 0.9rem;
 }
 
-.marketData p {
-  display: flex;
-  align-items: center;
-}
-
 .fiat {
   color: var(--text-dimmed);
 }

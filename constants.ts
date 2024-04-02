@@ -4,8 +4,8 @@ export const title = 'ASI Calculator'
 export const description =
   'See how much ASI you get for your OCEAN, AGIX, or FET.'
 
-export const ratioOceanToAsi = 0.433226
-export const ratioAgixToAsi = 0.43335
+export const ratioOceanToAsi = 0.43322638231018
+export const ratioAgixToAsi = 0.43335018345744
 export const ratioFetToAsi = 1
 
 export const tokens: Token[] = [
