@@ -17,13 +17,13 @@ export function Footer() {
           </a>
         </p>
       </div>
-      <div>
+      {/* <div>
         <p>
           <a href={`${repoUrl}/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}>
             {process.env.VERCEL_GIT_COMMIT_SHA?.substring(0, 7)}
           </a>
         </p>
-      </div>
+      </div> */}
     </footer>
   )
 }
