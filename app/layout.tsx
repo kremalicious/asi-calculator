@@ -1,16 +1,15 @@
 import type { Metadata } from 'next'
-import { Hanken_Grotesk } from 'next/font/google'
 import '@/styles/globals.css'
 import '@/styles/loading-ui.css'
 import Script from 'next/script'
-import { title, description } from '@/constants'
+import { title, description, font, liveUrl } from '@/constants'
 
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-hanken-grotesk'
-})
-
-export const metadata: Metadata = { title, description }
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: { canonical: liveUrl },
+  metadataBase: new URL(liveUrl)
+}
 
 export default function RootLayout({
   children
@@ -26,7 +25,7 @@ export default function RootLayout({
           data-website-id="6565eff1-a1c8-4b3e-a6c4-08ecb00b06ab"
         />
       </head>
-      <body className={hankenGrotesk.variable}>{children}</body>
+      <body className={font.variable}>{children}</body>
     </html>
   )
 }

@@ -1,8 +1,10 @@
 import { Token } from '@/types'
+import { Hanken_Grotesk } from 'next/font/google'
 
 export const title = 'ASI Calculator'
 export const description =
   'See how much ASI you get for your OCEAN, AGIX, or FET.'
+export const liveUrl = 'https://asi.kremalicious.com'
 
 export const ratioOceanToAsi = 0.43322638231018
 export const ratioAgixToAsi = 0.43335018345744
@@ -13,3 +15,8 @@ export const tokens: Token[] = [
   { symbol: 'FET', address: '0xaea46a60368a7bd060eec7df8cba43b7ef41ad85' },
   { symbol: 'AGIX', address: '0x5b7533812759b45c2b44c19e320ba2cd2681b542' }
 ]
+
+export const font = Hanken_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-hanken-grotesk'
+})
