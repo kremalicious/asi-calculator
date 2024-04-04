@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import { usePrices } from '@/features/prices'
@@ -8,10 +8,19 @@ import { getTokenBySymbol } from '@/lib'
 import { FormAmount, Result } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 
+const isClient = typeof window !== 'undefined'
+
 export function Buy() {
   const { prices, isValidating, isLoading } = usePrices()
-  const [amount, setAmount] = useState(100)
+  const [amount, setAmountState] = useState(
+    isClient ? Number(localStorage?.getItem('buyAmount')) : 100 || 100
+  )
   const [debouncedAmount] = useDebounce(amount, 500)
+
+  function setAmount(amount: SetStateAction<number>) {
+    setAmountState(amount)
+    localStorage?.setItem('buyAmount', amount.toString())
+  }
 
   return (
     <div className={stylesShared.results}>

@@ -1,17 +1,42 @@
 'use client'
 
-import { useState } from 'react'
+import { SetStateAction, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 import { TokenSymbol } from '@/types'
 import { type Market, FormAmount, FormMarket } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 
+const isClient = typeof window !== 'undefined'
+
 export function Swap() {
-  const [amount, setAmount] = useState(100)
+  const [amount, setAmountState] = useState(
+    isClient ? Number(localStorage.getItem('swapAmount')) : 100 || 100
+  )
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [tokenSymbol, setTokenSymbol] = useState<TokenSymbol>('OCEAN')
-  const [market, setMarket] = useState<Market>('all')
+  const [tokenSymbol, setTokenSymbolState] = useState<TokenSymbol>(
+    isClient
+      ? (localStorage.getItem('swapTokenSymbol') as TokenSymbol)
+      : 'OCEAN' || 'OCEAN'
+  )
+  const [market, setMarketState] = useState<Market>(
+    isClient ? (localStorage.getItem('swapMarket') as Market) : 'all' || 'all'
+  )
+
+  function setAmount(amount: SetStateAction<number>) {
+    setAmountState(amount)
+    localStorage.setItem('swapAmount', amount.toString())
+  }
+
+  function setTokenSymbol(tokenSymbol: SetStateAction<TokenSymbol>) {
+    setTokenSymbolState(tokenSymbol)
+    localStorage.setItem('swapTokenSymbol', tokenSymbol as string)
+  }
+
+  function setMarket(market: SetStateAction<Market>) {
+    setMarketState(market)
+    localStorage.setItem('swapMarket', market as string)
+  }
 
   return (
     <div className={stylesShared.results}>
