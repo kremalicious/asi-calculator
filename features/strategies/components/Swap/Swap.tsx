@@ -3,9 +3,13 @@
 import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 import { TokenSymbol } from '@/types'
-import { type Market, FormAmount, FormMarket } from '@/features/strategies'
+import {
+  type Market,
+  FormAmount,
+  FormMarket,
+  usePersistentState
+} from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
-import { type Market, usePersistentState } from '@/features/strategies'
 
 export function Swap() {
   const [amount, setAmount] = usePersistentState('swapAmount', 100)

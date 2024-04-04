@@ -1,16 +1,36 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 
-export function usePersistentState<T>(key: string, defaultValue: T) {
-  const [value, setValue] = useState(() => {
-    const persistentValue = window.localStorage.getItem(key)
-    return persistentValue !== null ? JSON.parse(persistentValue) : defaultValue
-  })
+function parse(value: string) {
+  try {
+    return JSON.parse(value)
+  } catch {
+    return value
+  }
+}
+
+export function usePersistentState<T>(
+  key: string,
+  initialState?: T | (() => T)
+): [T, Dispatch<SetStateAction<T>>] {
+  const [state, setState] = useState<T>(initialState as T)
+
+  function changeValue(state: SetStateAction<T>) {
+    setState(state)
+    localStorage.setItem(key, JSON.stringify(state))
+  }
 
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(value))
-  }, [key, value])
+    const stored = localStorage.getItem(key)
 
-  return [value, setValue]
+    if (!stored) {
+      setState(initialState as T)
+      localStorage.setItem(key, JSON.stringify(initialState))
+    } else {
+      setState(parse(stored))
+    }
+  }, [initialState, key])
+
+  return [state, changeValue]
 }
