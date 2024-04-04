@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
     return Response.json(null, { status: 400 })
   }
 
-  const url = `${apiUrl}/prices/?tokens=${tokens}`
+  const url = `${apiUrl}/prices?tokens=${tokens}`
   let data
   let status
 
@@ -39,7 +39,8 @@ export async function GET(request: NextRequest) {
   return new Response(JSON.stringify(data), {
     status,
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, s-max-age=60'
     }
   })
 }
