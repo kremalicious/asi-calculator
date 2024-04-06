@@ -46,9 +46,7 @@ export function FormAmount({
         pattern="[0-9]*"
         value={amount}
         onChange={handleAmountChange}
-        style={{
-          width: Math.min(Math.max(amount.toString().length, 2), 50) + 'ch'
-        }}
+        style={{ width: amount.toString().length + 'ch' }}
       />
 
       <Select
@@ -56,7 +54,15 @@ export function FormAmount({
         value={token}
         onChange={handleTokenChange}
         disabled={!setToken}
-        style={setToken ? { paddingRight: '1.25rem' } : {}}
+        style={
+          setToken
+            ? {
+                paddingRight: '1.2rem',
+                width: `calc(${token.length + 'em'} - 1.75rem)`,
+                minWidth: '1.85rem'
+              }
+            : undefined
+        }
       />
     </FormInline>
   )
