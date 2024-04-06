@@ -12,18 +12,20 @@ export function Footer() {
         </span>
 
         <p className={styles.social}>
+          <a
+            className={styles.commitHash}
+            href={`${repoUrl}/commit/${process.env.GIT_COMMIT_SHA}`}
+          >
+            {process.env.GIT_COMMIT_SHA?.substring(0, 7)}
+          </a>
           <a href={repoUrl}>
             <GitHubLogoIcon />
           </a>
         </p>
       </div>
-      {/* <div>
-        <p>
-          <a href={`${repoUrl}/commit/${process.env.VERCEL_GIT_COMMIT_SHA}`}>
-            {process.env.VERCEL_GIT_COMMIT_SHA?.substring(0, 7)}
-          </a>
-        </p>
-      </div> */}
+      <div style={{ textAlign: 'right' }}>
+        <p></p>
+      </div>
     </footer>
   )
 }

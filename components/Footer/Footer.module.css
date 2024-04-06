@@ -14,7 +14,7 @@
   justify-content: space-between;
 }
 
-.footer a {
+.footer a:not(.commitHash) {
   color: rgba(var(--foreground-rgb), 0.8);
 }
 
