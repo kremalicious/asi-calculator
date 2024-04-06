@@ -8,6 +8,7 @@
   height: 24px;
   border-radius: 50%;
   background-color: rgba(var(--foreground-rgb), 0.5);
+  user-select: none;
 }
 
 .logo img {
