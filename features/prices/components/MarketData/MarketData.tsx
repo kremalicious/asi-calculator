@@ -3,7 +3,7 @@
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import styles from './MarketData.module.css'
 import { usePrices } from '@/features/prices'
-import { Label } from '@/components'
+import { Badge } from '@/components'
 
 export function MarketData() {
   const { prices, isValidating, isLoading } = usePrices()
@@ -11,8 +11,8 @@ export function MarketData() {
   const feedbackClasses = isLoading
     ? 'isLoading'
     : isValidating
-    ? 'isValidating'
-    : ''
+      ? 'isValidating'
+      : ''
 
   return (
     <ul className={styles.marketData}>
@@ -27,7 +27,7 @@ export function MarketData() {
       <li>
         <p>
           1 Fet = {ratioFetToAsi} ASI
-          <Label>fixed</Label>
+          <Badge>fixed</Badge>
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
@@ -40,7 +40,7 @@ export function MarketData() {
           1 OCEAN ={' '}
           <span title={`${ratioOceanToAsi}`}>{ratioOceanToAsi.toFixed(6)}</span>{' '}
           ASI
-          <Label>fixed</Label>
+          <Badge>fixed</Badge>
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
@@ -53,7 +53,7 @@ export function MarketData() {
           1 AGIX ={' '}
           <span title={`${ratioAgixToAsi}`}>{ratioAgixToAsi.toFixed(5)}</span>{' '}
           ASI
-          <Label>fixed</Label>
+          <Badge>fixed</Badge>
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
