@@ -9,7 +9,17 @@
   background-color: rgba(var(--background-rgb), 0.1);
 }
 
-.input:focus-within {
+.input:focus {
   outline: none;
   background-color: rgba(var(--background-rgb), 0.3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .input:hover {
+    background-color: rgba(var(--foreground-rgb), 0.05);
+  }
+
+  .input:focus {
+    background-color: rgba(var(--foreground-rgb), 0.2);
+  }
 }
