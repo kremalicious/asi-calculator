@@ -21,3 +21,5 @@ export const font = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-hanken-grotesk'
 })
+
+export const isProduction = process.env.NODE_ENV === 'production'
