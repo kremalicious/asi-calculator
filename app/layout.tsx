@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import '@/styles/loading-ui.css'
 import Script from 'next/script'
 import { title, description, font, liveUrl, isProduction } from '@/constants'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
   title,
@@ -16,15 +17,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const userLocale =
-    typeof navigator !== 'undefined'
-      ? navigator.languages?.length
-        ? navigator.languages[0]
-        : navigator.language
-      : 'en'
+  const headersList = headers()
+  const language = headersList.get('x-language')
 
   return (
-    <html lang="en" data-locale={userLocale}>
+    <html lang="en" data-language={language}>
       <head>
         {isProduction ? (
           <Script
