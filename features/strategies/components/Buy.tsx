@@ -22,29 +22,33 @@ export function Buy() {
       </h3>
       <Result
         token={getTokenBySymbol('OCEAN')}
-        amount={debouncedAmount / prices.ocean}
-        amountAsi={(debouncedAmount / prices.ocean) * ratioOceanToAsi}
+        amount={debouncedAmount / prices.ocean.usd}
+        amountAsi={(debouncedAmount / prices.ocean.usd) * ratioOceanToAsi}
         amountFiat={
-          (debouncedAmount / prices.ocean) * ratioOceanToAsi * prices.asi
+          (debouncedAmount / prices.ocean.usd) *
+          ratioOceanToAsi *
+          prices.asi.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('AGIX')}
-        amount={debouncedAmount / prices.agix}
-        amountAsi={(debouncedAmount / prices.agix) * ratioAgixToAsi}
+        amount={debouncedAmount / prices.agix.usd}
+        amountAsi={(debouncedAmount / prices.agix.usd) * ratioAgixToAsi}
         amountFiat={
-          (debouncedAmount / prices.agix) * ratioAgixToAsi * prices.asi
+          (debouncedAmount / prices.agix.usd) * ratioAgixToAsi * prices.asi.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('FET')}
-        amount={debouncedAmount / prices.fet}
-        amountAsi={(debouncedAmount / prices.fet) * ratioFetToAsi}
-        amountFiat={(debouncedAmount / prices.fet) * ratioFetToAsi * prices.asi}
+        amount={debouncedAmount / prices.fet.usd}
+        amountAsi={(debouncedAmount / prices.fet.usd) * ratioFetToAsi}
+        amountFiat={
+          (debouncedAmount / prices.fet.usd) * ratioFetToAsi * prices.asi.usd
+        }
         isValidating={isValidating}
         isLoading={isLoading}
       />

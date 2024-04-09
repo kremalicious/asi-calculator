@@ -7,19 +7,31 @@ import useSWR from 'swr'
 const tokenAddresses = tokens.map((token) => token.address).toString()
 
 export type Prices = {
-  ocean: number
-  fet: number
-  agix: number
-  asi: number
+  ocean: {
+    usd: number
+    usd_24h_change: number
+  }
+  fet: {
+    usd: number
+    usd_24h_change: number
+  }
+  agix: {
+    usd: number
+    usd_24h_change: number
+  }
+  asi: {
+    usd: number
+    usd_24h_change: number
+  }
 }
 
 export function usePrices(): {
-  prices: { ocean: number; fet: number; agix: number; asi: number }
+  prices: Prices
   isValidating: boolean
   isLoading: boolean
 } {
   const { data, isValidating, isLoading } = useSWR(
-    `/api/prices/?tokens=${tokenAddresses}`,
+    `/api/prices?tokens=${tokenAddresses}`,
     fetcher
   )
 
@@ -27,16 +39,21 @@ export function usePrices(): {
   const fetAddress = getTokenAddressBySymbol('FET')
   const agixAddress = getTokenAddressBySymbol('AGIX')
 
-  if (!oceanAddress || !fetAddress || !agixAddress)
+  if (!data || !oceanAddress || !fetAddress || !agixAddress)
     return {
-      prices: { ocean: 0, fet: 0, agix: 0, asi: 0 },
+      prices: {
+        ocean: { usd: 0, usd_24h_change: 0 },
+        fet: { usd: 0, usd_24h_change: 0 },
+        agix: { usd: 0, usd_24h_change: 0 },
+        asi: { usd: 0, usd_24h_change: 0 }
+      },
       isValidating,
       isLoading
     }
 
-  const ocean = data?.[oceanAddress]?.usd || 0
-  const fet = data?.[fetAddress]?.usd || 0
-  const agix = data?.[agixAddress]?.usd || 0
+  const ocean = data[oceanAddress]
+  const fet = data[fetAddress]
+  const agix = data[agixAddress]
   const asi = fet
 
   return { prices: { ocean, fet, agix, asi }, isValidating, isLoading }

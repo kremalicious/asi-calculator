@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import '@/styles/loading-ui.css'
 import Script from 'next/script'
 import { title, description, font, liveUrl, isProduction } from '@/constants'
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
   title,
@@ -16,8 +17,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = headers()
+  const locale = headersList.get('x-locale')
+
   return (
-    <html lang="en">
+    <html lang="en" data-locale={locale}>
       <head>
         {isProduction ? (
           <Script
