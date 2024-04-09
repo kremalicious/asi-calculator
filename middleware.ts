@@ -1,15 +1,11 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const language =
-    request.headers
-      .get('accept-language')
-      ?.split(',')?.[0]
-      .split('-')?.[0]
-      .toLowerCase() || 'en'
+  // add x-locale header to all responses
+  const locale =
+    request.headers.get('accept-language')?.split(',')?.[0] || 'en-US'
   const response = NextResponse.next()
-  if (language) response.headers.set('x-language', language)
+  response.headers.set('x-locale', locale)
 
   return response
 }

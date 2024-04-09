@@ -18,10 +18,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const headersList = headers()
-  const language = headersList.get('x-language')
+  const locale = headersList.get('x-locale')
 
   return (
-    <html lang="en" data-language={language}>
+    <html lang="en" data-locale={locale}>
       <head>
         {isProduction ? (
           <Script
