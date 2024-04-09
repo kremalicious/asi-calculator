@@ -34,10 +34,11 @@ export function SwapResults({
     isLoadingToOcean
   } = useQuote(tokenSymbol, amount, isUniswap)
 
-  const amountInUsd = amount * prices[tokenSymbol.toLowerCase() as keyof Prices]
-  const amountToOcean = amountInUsd / prices.ocean
-  const amountToAgix = amountInUsd / prices.agix
-  const amountToFet = amountInUsd / prices.fet
+  const amountInUsd =
+    amount * prices[tokenSymbol.toLowerCase() as keyof Prices].usd
+  const amountToOcean = amountInUsd / prices.ocean.usd
+  const amountToAgix = amountInUsd / prices.agix.usd
+  const amountToFet = amountInUsd / prices.fet.usd
 
   return (
     <>
@@ -46,10 +47,12 @@ export function SwapResults({
         amount={amountToOceanUniswap || amountToOcean}
         amountAsi={(amountToOceanUniswap || amountToOcean) * ratioOceanToAsi}
         amountFiat={
-          (amountToOceanUniswap || amountToOcean) * ratioOceanToAsi * prices.asi
+          (amountToOceanUniswap || amountToOcean) *
+          ratioOceanToAsi *
+          prices.asi.usd
         }
         amountOriginalFiat={
-          (amountToOceanUniswap || amountToOcean) * prices.ocean
+          (amountToOceanUniswap || amountToOcean) * prices.ocean.usd
         }
         isValidating={isValidatingToOcean || isValidatingPrices}
         isLoading={isLoadingToOcean || isLoadingPrices}
@@ -60,9 +63,13 @@ export function SwapResults({
         amount={amountToAgixUniswap || amountToAgix}
         amountAsi={(amountToAgixUniswap || amountToAgix) * ratioAgixToAsi}
         amountFiat={
-          (amountToAgixUniswap || amountToAgix) * ratioAgixToAsi * prices.asi
+          (amountToAgixUniswap || amountToAgix) *
+          ratioAgixToAsi *
+          prices.asi.usd
         }
-        amountOriginalFiat={(amountToAgixUniswap || amountToAgix) * prices.agix}
+        amountOriginalFiat={
+          (amountToAgixUniswap || amountToAgix) * prices.agix.usd
+        }
         isValidating={isValidatingToAgix || isValidatingPrices}
         isLoading={isLoadingToAgix || isLoadingPrices}
       />
@@ -71,8 +78,10 @@ export function SwapResults({
         token={getTokenBySymbol('FET')}
         amount={amountToFetUniswap || amountToFet}
         amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
-        amountFiat={(amountToFetUniswap || amountToFet) * prices.asi}
-        amountOriginalFiat={(amountToFetUniswap || amountToFet) * prices.asi}
+        amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
+        amountOriginalFiat={
+          (amountToFetUniswap || amountToFet) * prices.asi.usd
+        }
         isValidating={isValidatingToFet || isValidatingPrices}
         isLoading={isLoadingToFet || isLoadingPrices}
       />

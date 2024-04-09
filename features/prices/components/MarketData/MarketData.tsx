@@ -20,7 +20,7 @@ export function MarketData() {
         <p>1 ASI</p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.asi}
+            ${prices.asi.usd}
           </span>
         </p>
       </li>
@@ -31,7 +31,7 @@ export function MarketData() {
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.fet}
+            ${prices.fet.usd}
           </span>
         </p>
       </li>
@@ -44,7 +44,7 @@ export function MarketData() {
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.ocean}
+            ${prices.ocean.usd}
           </span>
         </p>
       </li>
@@ -57,7 +57,7 @@ export function MarketData() {
         </p>
         <p>
           <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.agix}
+            ${prices.agix.usd}
           </span>
         </p>
       </li>
