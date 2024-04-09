@@ -15,13 +15,3 @@
   padding: 1rem;
   font-size: 0.9rem;
 }
-
-.marketData p:last-child {
-  border-top: 1px solid rgba(var(--foreground-rgb), 0.1);
-  padding-top: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.fiat {
-  color: var(--text-dimmed);
-}

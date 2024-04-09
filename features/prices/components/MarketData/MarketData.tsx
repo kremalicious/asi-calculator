@@ -4,36 +4,23 @@ import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import styles from './MarketData.module.css'
 import { usePrices } from '@/features/prices'
 import { Badge } from '@/components'
+import { Price } from '../Price'
 
 export function MarketData() {
-  const { prices, isValidating, isLoading } = usePrices()
-
-  const feedbackClasses = isLoading
-    ? 'isLoading'
-    : isValidating
-      ? 'isValidating'
-      : ''
+  const { prices } = usePrices()
 
   return (
     <ul className={styles.marketData}>
       <li>
         <p>1 ASI</p>
-        <p>
-          <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.asi.usd}
-          </span>
-        </p>
+        <Price price={prices.asi.usd} priceChange={prices.asi.usd_24h_change} />
       </li>
       <li>
         <p>
           1 Fet = {ratioFetToAsi} ASI
           <Badge>fixed</Badge>
         </p>
-        <p>
-          <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.fet.usd}
-          </span>
-        </p>
+        <Price price={prices.fet.usd} priceChange={prices.fet.usd_24h_change} />
       </li>
       <li>
         <p>
@@ -42,11 +29,10 @@ export function MarketData() {
           ASI
           <Badge>fixed</Badge>
         </p>
-        <p>
-          <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.ocean.usd}
-          </span>
-        </p>
+        <Price
+          price={prices.ocean.usd}
+          priceChange={prices.ocean.usd_24h_change}
+        />
       </li>
       <li>
         <p>
@@ -55,11 +41,10 @@ export function MarketData() {
           ASI
           <Badge>fixed</Badge>
         </p>
-        <p>
-          <span className={`${styles.fiat} ${feedbackClasses}`}>
-            ${prices.agix.usd}
-          </span>
-        </p>
+        <Price
+          price={prices.agix.usd}
+          priceChange={prices.agix.usd_24h_change}
+        />
       </li>
     </ul>
   )

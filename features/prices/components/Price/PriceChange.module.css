@@ -1,0 +1,33 @@
+.change {
+  font-size: 0.7rem;
+
+  --color-positive: #2ecc40;
+  --color-negative: #ff4136;
+}
+
+/* culture-sensitive color psychology */
+[data-locale|='zh'] .change,
+[data-locale|='ja'] .change {
+  --color-positive: #ff4136;
+  --color-negative: #2ecc40;
+}
+
+[data-locale|='ko'] .change {
+  --color-positive: #0074d9;
+  --color-negative: #2ecc40;
+}
+
+.change svg {
+  position: relative;
+  top: 0.15rem;
+  width: 13px;
+  height: 13px;
+}
+
+.change.positive {
+  color: var(--color-positive);
+}
+
+.change.negative {
+  color: var(--color-negative);
+}

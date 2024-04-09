@@ -16,8 +16,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const userLocale =
+    typeof navigator !== 'undefined'
+      ? navigator.languages?.length
+        ? navigator.languages[0]
+        : navigator.language
+      : 'en'
+
   return (
-    <html lang="en">
+    <html lang="en" data-locale={userLocale}>
       <head>
         {isProduction ? (
           <Script
