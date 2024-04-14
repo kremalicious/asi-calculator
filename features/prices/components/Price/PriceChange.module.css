@@ -1,7 +1,7 @@
 .change {
   font-size: 0.7rem;
 
-  --color-positive: #2ecc40;
+  --color-positive: #3d9970;
   --color-negative: #ff4136;
 }
 
@@ -9,12 +9,12 @@
 .change[data-locale|='zh'],
 .change[data-locale|='ja'] {
   --color-positive: #ff4136;
-  --color-negative: #2ecc40;
+  --color-negative: #3d9970;
 }
 
 .change[data-locale|='ko'] {
   --color-positive: #0074d9;
-  --color-negative: #2ecc40;
+  --color-negative: #3d9970;
 }
 
 .change svg {

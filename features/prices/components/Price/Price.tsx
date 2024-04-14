@@ -13,7 +13,7 @@ export function Price({ price }: { price: PriceCoingecko }) {
 
   return (
     <p className={styles.price}>
-      <span className={`${styles.fiat} ${feedbackClasses}`}>${price.usd} </span>
+      <span className={`${styles.fiat} ${feedbackClasses}`}>${price.usd}</span>
       {price?.usd_24h_change ? (
         <PriceChange priceChange={price.usd_24h_change} />
       ) : null}
