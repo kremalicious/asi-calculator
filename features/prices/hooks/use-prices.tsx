@@ -6,23 +6,16 @@ import useSWR from 'swr'
 
 const tokenAddresses = tokens.map((token) => token.address).toString()
 
+export type PriceCoingecko = {
+  usd: number
+  usd_24h_change: number
+}
+
 export type Prices = {
-  ocean: {
-    usd: number
-    usd_24h_change: number
-  }
-  fet: {
-    usd: number
-    usd_24h_change: number
-  }
-  agix: {
-    usd: number
-    usd_24h_change: number
-  }
-  asi: {
-    usd: number
-    usd_24h_change: number
-  }
+  ocean: PriceCoingecko
+  fet: PriceCoingecko
+  agix: PriceCoingecko
+  asi: PriceCoingecko
 }
 
 export function usePrices(): {

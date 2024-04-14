@@ -1,7 +1,7 @@
-import styles from './page.module.css'
+import { Content, Footer, Header } from '@/components'
 import { Swap, Buy } from '@/features/strategies'
 import { MarketData } from '@/features/prices'
-import { Content, Footer, Header } from '@/components'
+import styles from './page.module.css'
 
 export default function Home() {
   return (

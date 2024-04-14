@@ -1,10 +1,9 @@
 'use client'
 
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import styles from './MarketData.module.css'
-import { usePrices } from '@/features/prices'
+import { usePrices, Price } from '@/features/prices'
 import { Badge } from '@/components'
-import { Price } from '../Price'
+import styles from './MarketData.module.css'
 
 export function MarketData() {
   const { prices } = usePrices()
@@ -13,14 +12,14 @@ export function MarketData() {
     <ul className={styles.marketData}>
       <li>
         <p>1 ASI</p>
-        <Price price={prices.asi.usd} priceChange={prices.asi.usd_24h_change} />
+        <Price price={prices.asi} />
       </li>
       <li>
         <p>
           1 Fet = {ratioFetToAsi} ASI
           <Badge>fixed</Badge>
         </p>
-        <Price price={prices.fet.usd} priceChange={prices.fet.usd_24h_change} />
+        <Price price={prices.fet} />
       </li>
       <li>
         <p>
@@ -29,10 +28,7 @@ export function MarketData() {
           ASI
           <Badge>fixed</Badge>
         </p>
-        <Price
-          price={prices.ocean.usd}
-          priceChange={prices.ocean.usd_24h_change}
-        />
+        <Price price={prices.ocean} />
       </li>
       <li>
         <p>
@@ -41,10 +37,7 @@ export function MarketData() {
           ASI
           <Badge>fixed</Badge>
         </p>
-        <Price
-          price={prices.agix.usd}
-          priceChange={prices.agix.usd_24h_change}
-        />
+        <Price price={prices.agix} />
       </li>
     </ul>
   )

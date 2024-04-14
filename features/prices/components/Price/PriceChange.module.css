@@ -6,13 +6,13 @@
 }
 
 /* culture-sensitive color psychology */
-[data-locale|='zh'] .change,
-[data-locale|='ja'] .change {
+.change[data-locale|='zh'],
+.change[data-locale|='ja'] {
   --color-positive: #ff4136;
   --color-negative: #2ecc40;
 }
 
-[data-locale|='ko'] .change {
+.change[data-locale|='ko'] {
   --color-positive: #0074d9;
   --color-negative: #2ecc40;
 }

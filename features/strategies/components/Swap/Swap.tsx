@@ -4,9 +4,8 @@ import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 import { TokenSymbol } from '@/types'
-import { FormAmount, FormMarket } from '@/features/strategies/components'
+import { type Market, FormAmount, FormMarket } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
-import { type Market } from '@/features/strategies'
 
 export function Swap() {
   const [amount, setAmount] = useState(100)

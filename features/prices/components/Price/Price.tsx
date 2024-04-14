@@ -1,14 +1,8 @@
-import styles from './Price.module.css'
-import { usePrices } from '@/features/prices'
+import { usePrices, type PriceCoingecko } from '@/features/prices'
 import { PriceChange } from './PriceChange'
+import styles from './Price.module.css'
 
-export function Price({
-  price,
-  priceChange
-}: {
-  price: number
-  priceChange?: number
-}) {
+export function Price({ price }: { price: PriceCoingecko }) {
   const { isValidating, isLoading } = usePrices()
 
   const feedbackClasses = isLoading
@@ -19,8 +13,10 @@ export function Price({
 
   return (
     <p className={styles.price}>
-      <span className={`${styles.fiat} ${feedbackClasses}`}>${price} </span>
-      {priceChange ? <PriceChange priceChange={priceChange} /> : null}
+      <span className={`${styles.fiat} ${feedbackClasses}`}>${price.usd} </span>
+      {price?.usd_24h_change ? (
+        <PriceChange priceChange={price.usd_24h_change} />
+      ) : null}
     </p>
   )
 }
