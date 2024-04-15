@@ -2,10 +2,17 @@ import { tokens } from '@/constants'
 import type { TokenAddress, Token } from '@/types'
 import { formatCurrency } from '@coingecko/cryptoformat'
 
-export function formatNumber(price: number, currency: string) {
-  return formatCurrency(price, currency, 'en', false, {
+export function formatCrypto(price: number, currency: string, locale: string) {
+  return formatCurrency(price, currency, locale, false, {
     decimalPlaces: 3,
-    significantFigures: 5
+    significantFigures: 1
+  })
+}
+
+export function formatFiat(price: number, currency: string, locale: string) {
+  return formatCurrency(price, currency, locale, false, {
+    decimalPlaces: 2,
+    significantFigures: 4
   })
 }
 
