@@ -20,6 +20,8 @@ export function FormAmount({
 
     if (value === '') {
       setAmount(0)
+    } else if (isNaN(Number(value))) {
+      return
     } else {
       setAmount(Number(value))
     }
