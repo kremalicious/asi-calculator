@@ -30,6 +30,10 @@ export function FormAmount({
     setToken(e.target.value as TokenSymbol)
   }
 
+  function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
+    e.target.select()
+  }
+
   const options = isFiat
     ? [{ value: 'USD', label: 'USD' }]
     : [
@@ -46,6 +50,7 @@ export function FormAmount({
         pattern="[0-9]*"
         value={amount}
         onChange={handleAmountChange}
+        onFocus={handleFocus}
         style={{ width: amount.toString().length + 'ch' }}
       />
 
