@@ -1,17 +1,24 @@
 'use client'
 
-import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 import { TokenSymbol } from '@/types'
-import { type Market, FormAmount, FormMarket } from '@/features/strategies'
+import {
+  type Market,
+  FormAmount,
+  FormMarket,
+  usePersistentState
+} from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 
 export function Swap() {
-  const [amount, setAmount] = useState(100)
+  const [amount, setAmount] = usePersistentState('swapAmount', 100)
   const [debouncedAmount] = useDebounce(amount, 500)
-  const [tokenSymbol, setTokenSymbol] = useState<TokenSymbol>('OCEAN')
-  const [market, setMarket] = useState<Market>('all')
+  const [tokenSymbol, setTokenSymbol] = usePersistentState<TokenSymbol>(
+    'swapTokenSymbol',
+    'OCEAN'
+  )
+  const [market, setMarket] = usePersistentState<Market>('swapMarket', 'all')
 
   return (
     <div className={stylesShared.results}>

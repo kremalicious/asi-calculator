@@ -1,16 +1,15 @@
 'use client'
 
-import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import { usePrices } from '@/features/prices'
 import { getTokenBySymbol } from '@/lib'
-import { FormAmount, Result } from '@/features/strategies'
+import { FormAmount, Result, usePersistentState } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 
 export function Buy() {
   const { prices, isValidating, isLoading } = usePrices()
-  const [amount, setAmount] = useState(100)
+  const [amount, setAmount] = usePersistentState('buyAmount', 100)
   const [debouncedAmount] = useDebounce(amount, 500)
 
   return (
