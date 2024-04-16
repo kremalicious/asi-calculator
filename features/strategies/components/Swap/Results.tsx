@@ -1,5 +1,5 @@
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import { getTokenBySymbol } from '@/lib/utils'
+import { getTokenBySymbol } from '@/lib'
 import { type TokenSymbol } from '@/types'
 import { usePrices, type Prices } from '@/features/prices'
 import { type Market, useQuote } from '@/features/strategies'

@@ -1,5 +1,5 @@
 import styles from './Result.module.css'
-import { formatCrypto, formatFiat } from '@/lib/utils'
+import { formatCrypto, formatFiat } from '@/lib'
 import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { TokenLogo } from '@/components'
 import { Token } from '@/types'
@@ -37,7 +37,10 @@ export function Result({
         <TokenLogo token={token} />
 
         <p>
-          <span className={feedbackClasses}>
+          <span
+            className={feedbackClasses}
+            title={`${amount} ${token?.symbol}`}
+          >
             {formatCrypto(amount || 0, token?.symbol || '', locale)}
           </span>
         </p>
@@ -55,7 +58,7 @@ export function Result({
         <ArrowRightIcon className={styles.iconArrow} />
 
         <p>
-          <strong title={`${amountAsi}`} className={feedbackClasses}>
+          <strong title={`${amountAsi} ASI`} className={feedbackClasses}>
             {formatCrypto(amountAsi || 0, 'ASI', locale)}
           </strong>
         </p>
