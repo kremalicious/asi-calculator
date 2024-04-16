@@ -1,7 +1,7 @@
 'use client'
 
 import { TokenSymbol } from '@/types'
-import { getTokenAddressBySymbol, fetcher } from '@/lib/utils'
+import { getTokenAddressBySymbol, fetcher } from '@/lib'
 import useSWR from 'swr'
 
 const options = {

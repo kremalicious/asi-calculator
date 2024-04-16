@@ -1,7 +1,7 @@
 'use client'
 
 import { tokens } from '@/constants'
-import { fetcher, getTokenAddressBySymbol } from '@/lib/utils'
+import { fetcher, getTokenAddressBySymbol } from '@/lib'
 import useSWR from 'swr'
 
 const tokenAddresses = tokens.map((token) => token.address).toString()

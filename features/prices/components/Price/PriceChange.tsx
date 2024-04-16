@@ -2,18 +2,11 @@
 
 import { TriangleUpIcon, TriangleDownIcon } from '@radix-ui/react-icons'
 import styles from './PriceChange.module.css'
-import { useEffect, useState } from 'react'
+import { useLocale } from '@/features/prices/hooks/use-locale'
 
 export function PriceChange({ priceChange }: { priceChange: number }) {
-  const [locale, setLocale] = useState('en-US')
+  const locale = useLocale()
   const styleClasses = priceChange > 0 ? styles.positive : styles.negative
-
-  useEffect(() => {
-    const userLocale = navigator?.languages?.length
-      ? navigator.languages[0]
-      : navigator.language
-    setLocale(userLocale)
-  }, [])
 
   return (
     <span

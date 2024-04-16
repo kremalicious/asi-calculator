@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
 import { usePrices } from '@/features/prices'
-import { getTokenBySymbol } from '@/lib/utils'
-import { FormAmount, Result } from '@/features/strategies/components'
+import { getTokenBySymbol } from '@/lib'
+import { FormAmount, Result } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 
 export function Buy() {
