@@ -12,7 +12,15 @@ The merge will happen between **June 11th-13th, 2024**, as announced in this pre
 
 - [Fetch.ai, Ocean Protocol and SingularityNET Finalize Merger Details to Create ASI Alliance](https://www.superintelligence.io/artificial-superintelligence-alliance/fetch.ai-ocean-protocol-and-singularitynet-finalize-merger-details-to-create-asi-alliance)
 
-You can find all the details and reasoning about the token merge in every team's announcement post:
+The ASI website provides a summary of most key points:
+
+- [superintelligence.io](https://www.superintelligence.io)
+
+Every single detail is outlined in the ASI Vision Paper:
+
+- [ASI Vision Paper](https://www.superintelligence.io/artificial-superintelligence-alliance/artificial-superintelligence-asi-alliance-vision-paper)
+
+You can find more reasoning about the token merge in every team's announcement post:
 
 - [Ocean Protocol: Ocean Protocol is joining the Superintelligence Alliance](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24)
 - [Fetch.ai: Superintelligence Alliance Token Merge $ASI](https://fetch.ai/blog/superintelligence-alliance-token-merge-asi)
