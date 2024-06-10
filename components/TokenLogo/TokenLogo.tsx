@@ -3,6 +3,7 @@ import styles from './TokenLogo.module.css'
 import oceanImage from '@/images/ocean.png'
 import agixImage from '@/images/agix.png'
 import fetImage from '@/images/fet.png'
+import asiImage from '@/images/asi.png'
 
 export function TokenLogo({
   token,
@@ -16,7 +17,9 @@ export function TokenLogo({
       ? oceanImage
       : token?.symbol === 'AGIX'
         ? agixImage
-        : fetImage
+        : token?.symbol === 'ASI'
+          ? asiImage
+          : fetImage
 
   return token ? (
     <span className={styles.logo} data-symbol={token.symbol}>

@@ -55,7 +55,7 @@ export function Result({
       </div>
 
       <div className={styles.resultLine}>
-        <ArrowRightIcon className={styles.iconArrow} />
+        <TokenLogo token={{ symbol: 'ASI', address: '0x' }} />
 
         <p>
           <strong title={`${amountAsi} ASI`} className={feedbackClasses}>

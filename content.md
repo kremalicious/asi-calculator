@@ -1,6 +1,6 @@
 ## The Calculator
 
-The **→ lines** show what you would get with the given token amount at the moment of the ASI swap, along with the converted USD value based on the current price of FET.
+The **ASI rows** show what you would get with the given token amount at the moment of the ASI swap, along with the converted USD value based on the current price of FET.
 
 The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Binance. The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) v3 routes on-chain, reflecting the actual liquidity situation for direct swaps between shown tokens.
 

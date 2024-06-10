@@ -1,15 +1,33 @@
+.header {
+  max-width: var(--max-width);
+  margin: auto;
+  margin-top: 5vh;
+}
+
 .title,
 .description {
   color: rgb(var(--foreground-rgb-highlight));
-  max-width: var(--max-width);
-  margin: auto;
 }
 
 .title {
   font-size: clamp(1.5rem, 10vw, 2.75rem);
-  margin-top: 5vh;
+  display: flex;
+  align-items: center;
 }
 
 .description {
   font-size: clamp(1.1rem, 5vw, 1.75rem);
+  color: var(--text-light);
+}
+
+@media (min-width: 22rem) {
+  .description {
+    padding-left: 3.75rem;
+  }
+}
+
+.logo {
+  height: 0.8em;
+  width: auto;
+  margin-right: 0.5rem;
 }
