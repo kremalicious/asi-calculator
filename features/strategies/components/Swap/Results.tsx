@@ -15,6 +15,7 @@ export function SwapResults({
   market: Market
 }) {
   const isUniswap = market === 'uniswap-v3'
+  const isMigration = market === 'migration'
 
   const {
     prices,
@@ -41,13 +42,14 @@ export function SwapResults({
   const amountToAgix = amountInUsd / prices.agix.usd
 
   // As of July 1st, use fixed ratios instead of FET market price
-  // as the markets for OCEAN & AGIX are limited
-  const amountToFet =
-    tokenSelected === 'ocean'
+  // for Migration Tool scenario
+  const amountToFet = isMigration
+    ? tokenSelected === 'ocean'
       ? amount * ratioOceanToAsi
       : tokenSelected === 'agix'
         ? amount * ratioAgixToAsi
         : amount
+    : amountInUsd / prices.fet.usd
 
   return (
     <>
