@@ -51,39 +51,46 @@ export function SwapResults({
         : amount
     : amountInUsd / prices.fet.usd
 
+  const showOcean = !isMigration || (isMigration && tokenSelected === 'ocean')
+  const showAgix = !isMigration || (isMigration && tokenSelected === 'agix')
+
   return (
     <>
-      <Result
-        token={getTokenBySymbol('OCEAN')}
-        amount={amountToOceanUniswap || amountToOcean}
-        amountAsi={(amountToOceanUniswap || amountToOcean) * ratioOceanToAsi}
-        amountFiat={
-          (amountToOceanUniswap || amountToOcean) *
-          ratioOceanToAsi *
-          prices.asi.usd
-        }
-        amountOriginalFiat={
-          (amountToOceanUniswap || amountToOcean) * prices.ocean.usd
-        }
-        isValidating={isValidatingToOcean || isValidatingPrices}
-        isLoading={isLoadingToOcean || isLoadingPrices}
-      />
+      {showOcean ? (
+        <Result
+          token={getTokenBySymbol('OCEAN')}
+          amount={amountToOceanUniswap || amountToOcean}
+          amountAsi={(amountToOceanUniswap || amountToOcean) * ratioOceanToAsi}
+          amountFiat={
+            (amountToOceanUniswap || amountToOcean) *
+            ratioOceanToAsi *
+            prices.asi.usd
+          }
+          amountOriginalFiat={
+            (amountToOceanUniswap || amountToOcean) * prices.ocean.usd
+          }
+          isValidating={isValidatingToOcean || isValidatingPrices}
+          isLoading={isLoadingToOcean || isLoadingPrices}
+        />
+      ) : null}
 
-      <Result
-        token={getTokenBySymbol('AGIX')}
-        amount={amountToAgixUniswap || amountToAgix}
-        amountAsi={(amountToAgixUniswap || amountToAgix) * ratioAgixToAsi}
-        amountFiat={
-          (amountToAgixUniswap || amountToAgix) *
-          ratioAgixToAsi *
-          prices.asi.usd
-        }
-        amountOriginalFiat={
-          (amountToAgixUniswap || amountToAgix) * prices.agix.usd
-        }
-        isValidating={isValidatingToAgix || isValidatingPrices}
-        isLoading={isLoadingToAgix || isLoadingPrices}
-      />
+      {showAgix ? (
+        <Result
+          token={getTokenBySymbol('AGIX')}
+          amount={amountToAgixUniswap || amountToAgix}
+          amountAsi={(amountToAgixUniswap || amountToAgix) * ratioAgixToAsi}
+          amountFiat={
+            (amountToAgixUniswap || amountToAgix) *
+            ratioAgixToAsi *
+            prices.asi.usd
+          }
+          amountOriginalFiat={
+            (amountToAgixUniswap || amountToAgix) * prices.agix.usd
+          }
+          isValidating={isValidatingToAgix || isValidatingPrices}
+          isLoading={isLoadingToAgix || isLoadingPrices}
+        />
+      ) : null}
 
       <Result
         token={getTokenBySymbol('FET')}
