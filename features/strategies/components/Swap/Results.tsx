@@ -34,11 +34,20 @@ export function SwapResults({
     isLoadingToOcean
   } = useQuote(tokenSymbol, amount, isUniswap)
 
-  const amountInUsd =
-    amount * prices[tokenSymbol.toLowerCase() as keyof Prices].usd
+  const tokenSelected = tokenSymbol.toLowerCase() as keyof Prices
+
+  const amountInUsd = amount * prices[tokenSelected].usd
   const amountToOcean = amountInUsd / prices.ocean.usd
   const amountToAgix = amountInUsd / prices.agix.usd
-  const amountToFet = amountInUsd / prices.fet.usd
+
+  // As of July 1st, use fixed ratios instead of FET market price
+  // as the markets for OCEAN & AGIX are limited
+  const amountToFet =
+    tokenSelected === 'ocean'
+      ? amount * ratioOceanToAsi
+      : tokenSelected === 'agix'
+        ? amount * ratioAgixToAsi
+        : amount
 
   return (
     <>
