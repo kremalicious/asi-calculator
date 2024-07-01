@@ -1,1 +1,1 @@
-export type Market = 'all' | 'uniswap-v3'
+export type Market = 'all' | 'migration' | 'uniswap-v3'

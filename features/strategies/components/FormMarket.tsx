@@ -4,6 +4,7 @@ import { type Market } from '@/features/strategies'
 
 const options = [
   { value: 'market', label: 'All Markets' },
+  { value: 'migration', label: 'Migration Tool' },
   { value: 'uniswap-v3', label: 'Uniswap v3' }
 ]
 

@@ -2,13 +2,19 @@
 
 The **ASI rows** show what you would get with the given token amount at the moment of the ASI swap, along with the converted USD value based on the current price of FET.
 
-The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Binance. The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) v3 routes on-chain, reflecting the actual liquidity situation for direct swaps between shown tokens.
+The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Kraken, who continue to trade OCEAN/AGIX/FET.
+
+Since July 1st, the official migration tool can be used to guarantee fixed ratios independent of any market forces. The _Migration Tool_ scenario uses these ratios for showing the FET amount:
+
+- [singularitydao.ai/migrate-asi](https://singularitydao.ai/migrate-asi)
+
+The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) v3 routes onchain, reflecting the actual liquidity situation for direct swaps between shown tokens.
 
 All displayed values should be seen as estimates. Except for the fixed ASI exchange rate, all other values are constantly changing based on market conditions. There is no guarantee the displayed values reflect the value of your investment once the actual ASI swap mechanism is released. Use at your own risk.
 
 ## Merge Details
 
-The merge happens between **June 11th-13th, 2024**. The ASI website and docs provide insights into most key points:
+The merge happens between **July 1st-15th, 2024**. The ASI website and docs provide insights into most key points:
 
 - [superintelligence.io](https://www.superintelligence.io)
 - [ASI Vision Paper](https://docs.superintelligence.io/artificial-superintelligence-alliance/artificial-superintelligence-asi-alliance-vision-paper)
