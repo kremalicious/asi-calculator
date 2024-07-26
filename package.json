@@ -30,6 +30,16 @@
     "husky": "^9.0.11",
     "typescript": "^5"
   },
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/kremalicious"
+    },
+    {
+      "type": "individual",
+      "url": "https://kremalicious.com/thanks"
+    }
+  ],
   "lint-staged": {
     "*": [
       "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
