@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
-import { TokenSymbol } from '@/types'
-import { Select, Input, FormInline } from '@/components'
+import { FormInline, Input, Select } from '@/components'
+import type { TokenSymbol } from '@/types'
+import type { Dispatch, SetStateAction } from 'react'
 
 export function FormAmount({
   amount,
@@ -20,7 +20,7 @@ export function FormAmount({
 
     if (value === '') {
       setAmount(0)
-    } else if (isNaN(Number(value))) {
+    } else if (Number.isNaN(Number(value))) {
       return
     } else {
       setAmount(Number(value))
@@ -53,7 +53,7 @@ export function FormAmount({
         value={amount}
         onChange={handleAmountChange}
         onFocus={handleFocus}
-        style={{ width: amount.toString().length + 'ch' }}
+        style={{ width: `${amount.toString().length}ch` }}
       />
 
       <Select
@@ -65,7 +65,7 @@ export function FormAmount({
           setToken
             ? {
                 paddingRight: '1.2rem',
-                width: `calc(${token.length + 'em'} - 1.75rem)`,
+                width: `calc(${`${token.length}em`} - 1.75rem)`,
                 minWidth: '1.85rem'
               }
             : undefined

@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next dev",
     "build": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next build",
-    "start": "next start",
-    "lint": "next lint",
+    "start": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next start",
+    "lint": "biome check --write .",
     "typecheck": "tsc --noEmit",
     "prepare": "husky"
   },
@@ -22,22 +22,16 @@
     "use-debounce": "^10.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4",
     "husky": "^9.0.11",
-    "prettier": "^3.2.5",
     "typescript": "^5"
   },
   "lint-staged": {
-    "*.{ts,mjs}": [
-      "prettier --write",
-      "eslint"
-    ],
-    "**/*.{json,yml,md}": [
-      "prettier --write"
+    "*": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
     ]
   }
 }

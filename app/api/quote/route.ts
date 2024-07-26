@@ -1,4 +1,4 @@
-import { type NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
@@ -14,8 +14,8 @@ export async function GET(request: NextRequest) {
     return Response.json(null, { status: 400 })
 
   const url = `${apiUrl}/quote?tokenIn=${tokenIn}&tokenOut=${tokenOut}&amountIn=${amountIn}`
-  let data
-  let status
+  let data: unknown
+  let status: number
 
   try {
     const res = await fetch(url)

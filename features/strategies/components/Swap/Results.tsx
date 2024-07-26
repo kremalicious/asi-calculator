@@ -1,8 +1,8 @@
-import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import { getTokenBySymbol } from '@/lib'
-import { type TokenSymbol } from '@/types'
-import { usePrices, type Prices } from '@/features/prices'
+import { ratioAgixToAsi, ratioFetToAsi, ratioOceanToAsi } from '@/constants'
+import { type Prices, usePrices } from '@/features/prices'
 import { type Market, useQuote } from '@/features/strategies'
+import { getTokenBySymbol } from '@/lib'
+import type { TokenSymbol } from '@/types'
 import { Result } from '../Result'
 
 export function SwapResults({

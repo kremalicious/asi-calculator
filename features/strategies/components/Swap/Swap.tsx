@@ -1,15 +1,15 @@
 'use client'
 
-import { useDebounce } from 'use-debounce'
-import { SwapResults } from './Results'
-import { TokenSymbol } from '@/types'
 import {
-  type Market,
   FormAmount,
   FormMarket,
+  type Market,
   usePersistentState
 } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
+import type { TokenSymbol } from '@/types'
+import { useDebounce } from 'use-debounce'
+import { SwapResults } from './Results'
 
 export function Swap() {
   const [amount, setAmount] = usePersistentState('swapAmount', 100)
