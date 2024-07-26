@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
 import '@/styles/loading-ui.css'
+import { description, font, isProduction, liveUrl, title } from '@/constants'
 import Script from 'next/script'
-import { title, description, font, liveUrl, isProduction } from '@/constants'
 
 export const metadata: Metadata = {
   title,

@@ -1,5 +1,5 @@
 import { tokens } from '@/constants'
-import type { TokenAddress, Token } from '@/types'
+import type { Token, TokenAddress } from '@/types'
 
 export function getTokenBySymbol(symbol: string): Token | undefined {
   const token = tokens.find((t) => t.symbol === symbol)

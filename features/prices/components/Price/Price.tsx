@@ -1,7 +1,7 @@
-import { useLocale, usePrices, type PriceCoingecko } from '@/features/prices'
-import { PriceChange } from './PriceChange'
-import styles from './Price.module.css'
+import { type PriceCoingecko, useLocale, usePrices } from '@/features/prices'
 import { formatFiat } from '@/lib'
+import styles from './Price.module.css'
+import { PriceChange } from './PriceChange'
 
 export function Price({ price }: { price: PriceCoingecko }) {
   const { isValidating, isLoading } = usePrices()

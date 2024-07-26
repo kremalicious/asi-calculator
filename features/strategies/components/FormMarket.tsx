@@ -1,6 +1,6 @@
-import { Dispatch, SetStateAction } from 'react'
-import { Select, FormInline } from '@/components'
-import { type Market } from '@/features/strategies'
+import { FormInline, Select } from '@/components'
+import type { Market } from '@/features/strategies'
+import type { Dispatch, SetStateAction } from 'react'
 
 const options = [
   { value: 'market', label: 'All Markets' },

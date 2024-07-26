@@ -1,8 +1,8 @@
 'use client'
 
-import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
-import { usePrices, Price } from '@/features/prices'
 import { Badge } from '@/components'
+import { ratioAgixToAsi, ratioFetToAsi, ratioOceanToAsi } from '@/constants'
+import { Price, usePrices } from '@/features/prices'
 import styles from './MarketData.module.css'
 
 export function MarketData() {

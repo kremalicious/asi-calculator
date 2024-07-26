@@ -1,11 +1,11 @@
 'use client'
 
-import { useDebounce } from 'use-debounce'
-import { ratioOceanToAsi, ratioAgixToAsi, ratioFetToAsi } from '@/constants'
+import { ratioAgixToAsi, ratioFetToAsi, ratioOceanToAsi } from '@/constants'
 import { usePrices } from '@/features/prices'
-import { getTokenBySymbol } from '@/lib'
 import { FormAmount, Result, usePersistentState } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
+import { getTokenBySymbol } from '@/lib'
+import { useDebounce } from 'use-debounce'
 
 export function Buy() {
   const { prices, isValidating, isLoading } = usePrices()

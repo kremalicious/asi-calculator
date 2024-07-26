@@ -1,6 +1,6 @@
 import { Content, Footer, Header } from '@/components'
-import { Swap, Buy } from '@/features/strategies'
 import { MarketData } from '@/features/prices'
+import { Buy, Swap } from '@/features/strategies'
 import styles from './page.module.css'
 
 export default function Home() {

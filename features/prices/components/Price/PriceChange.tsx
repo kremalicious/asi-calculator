@@ -1,8 +1,8 @@
 'use client'
 
-import { TriangleUpIcon, TriangleDownIcon } from '@radix-ui/react-icons'
-import styles from './PriceChange.module.css'
 import { useLocale } from '@/features/prices/hooks/use-locale'
+import { TriangleDownIcon, TriangleUpIcon } from '@radix-ui/react-icons'
+import styles from './PriceChange.module.css'
 
 export function PriceChange({ priceChange }: { priceChange: number }) {
   const locale = useLocale()

@@ -1,6 +1,6 @@
-import { SelectHTMLAttributes } from 'react'
-import styles from './Select.module.css'
 import { CaretDownIcon } from '@radix-ui/react-icons'
+import type { SelectHTMLAttributes } from 'react'
+import styles from './Select.module.css'
 
 type Props = SelectHTMLAttributes<HTMLSelectElement> & {
   options: { value: string; label: string }[]

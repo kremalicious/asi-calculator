@@ -1,6 +1,6 @@
+import { repoUrl } from '@/constants'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import styles from './Footer.module.css'
-import { repoUrl } from '@/constants'
 
 export function Footer() {
   return (
@@ -24,7 +24,7 @@ export function Footer() {
         </p>
       </div>
       <div style={{ textAlign: 'right' }}>
-        <p></p>
+        <p />
       </div>
     </footer>
   )

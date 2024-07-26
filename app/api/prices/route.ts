@@ -1,4 +1,4 @@
-import { type NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export const runtime = 'edge'
 
@@ -21,8 +21,8 @@ export async function GET(request: NextRequest) {
   }
 
   const url = `${apiUrl}/prices?tokens=${tokens}`
-  let data
-  let status
+  let data: unknown
+  let status: number
 
   try {
     const res = await fetch(url, config)

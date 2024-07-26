@@ -1,9 +1,9 @@
-import { Token } from '@/types'
-import styles from './TokenLogo.module.css'
-import oceanImage from '@/images/ocean.png'
 import agixImage from '@/images/agix.png'
-import fetImage from '@/images/fet.png'
 import asiImage from '@/images/asi.png'
+import fetImage from '@/images/fet.png'
+import oceanImage from '@/images/ocean.png'
+import type { Token } from '@/types'
+import styles from './TokenLogo.module.css'
 
 export function TokenLogo({
   token,

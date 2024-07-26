@@ -1,9 +1,9 @@
-import styles from './Result.module.css'
-import { formatCrypto, formatFiat } from '@/lib'
-import { ArrowRightIcon } from '@radix-ui/react-icons'
 import { TokenLogo } from '@/components'
-import { Token } from '@/types'
 import { useLocale } from '@/features/prices'
+import { formatCrypto, formatFiat } from '@/lib'
+import type { Token } from '@/types'
+import { ArrowRightIcon } from '@radix-ui/react-icons'
+import styles from './Result.module.css'
 
 type Props = {
   token: Token | undefined

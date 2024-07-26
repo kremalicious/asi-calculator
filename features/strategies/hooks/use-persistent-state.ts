@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, Dispatch, SetStateAction } from 'react'
+import { type Dispatch, type SetStateAction, useEffect, useState } from 'react'
 
 function parse(value: string) {
   try {
