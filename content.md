@@ -14,7 +14,7 @@ All displayed values should be seen as estimates. Except for the fixed ASI excha
 
 ## Merge Details
 
-The merge happens between **July 1st-15th, 2024**. The ASI website and docs provide insights into most key points:
+The ASI website and docs provide insights into most key points:
 
 - [superintelligence.io](https://www.superintelligence.io)
 - [ASI Vision Paper](https://docs.superintelligence.io/artificial-superintelligence-alliance/artificial-superintelligence-asi-alliance-vision-paper)
