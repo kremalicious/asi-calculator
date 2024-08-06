@@ -3,7 +3,7 @@ import { formatCurrency } from '@coingecko/cryptoformat'
 export function formatCrypto(price: number, currency: string, locale: string) {
   return formatCurrency(price, currency, locale, false, {
     decimalPlaces: 3,
-    significantFigures: 1
+    significantFigures: 5
   })
 }
 

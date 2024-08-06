@@ -2,7 +2,6 @@ import { TokenLogo } from '@/components'
 import { useLocale } from '@/features/prices'
 import { formatCrypto, formatFiat } from '@/lib'
 import type { Token } from '@/types'
-import { ArrowRightIcon } from '@radix-ui/react-icons'
 import styles from './Result.module.css'
 
 type Props = {
