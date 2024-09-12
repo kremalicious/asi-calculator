@@ -2,7 +2,7 @@
 
 The **ASI rows** show what you would get with the given token amount at the moment of the ASI swap, along with the converted USD value based on the current price of FET.
 
-The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Kraken, who continue to trade OCEAN/AGIX/FET.
+The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Kraken, who continue to trade OCEAN/AGIX/CUDOS/FET.
 
 Since July 1st, the official migration tool can be used to guarantee fixed ratios independent of any market forces. The _Migration Tool_ scenario uses these ratios for showing the FET amount:
 
@@ -24,6 +24,7 @@ You can find more reasoning about the token merge in every team's announcement p
 - [Ocean Protocol: Ocean Protocol is joining the Superintelligence Alliance](https://blog.oceanprotocol.com/ocean-protocol-is-joining-the-superintelligence-alliance-767c82693f24)
 - [Fetch.ai: Superintelligence Alliance Token Merge $ASI](https://fetch.ai/blog/superintelligence-alliance-token-merge-asi)
 - [SingularityNET: Introducing the Artificial Superintelligence Alliance](https://blog.singularitynet.io/introducing-the-artificial-superintelligence-alliance-40a4dea01e62)
+- [CUDOS: Artificial Superintelligence Alliance Proposes Addition of Cloud Compute Infrastructure Provider CUDOS](https://www.cudos.org/blog/artificial-superintelligence-alliance-proposes-addition-of-cloud-compute)
 
 ## Found an Issue?
 
