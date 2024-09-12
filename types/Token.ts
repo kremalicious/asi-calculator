@@ -1,4 +1,4 @@
-export type TokenSymbol = 'OCEAN' | 'FET' | 'AGIX' | 'ASI'
+export type TokenSymbol = 'OCEAN' | 'FET' | 'AGIX' | 'CUDOS' | 'ASI'
 export type TokenAddress = `0x${string}`
 
 export type Token = {

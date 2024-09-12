@@ -1,4 +1,9 @@
-import { ratioAgixToAsi, ratioFetToAsi, ratioOceanToAsi } from '@/constants'
+import {
+  ratioAgixToAsi,
+  ratioCudosToAsi,
+  ratioFetToAsi,
+  ratioOceanToAsi
+} from '@/constants'
 import { type Prices, usePrices } from '@/features/prices'
 import { type Market, useQuote } from '@/features/strategies'
 import { getTokenBySymbol } from '@/lib'
@@ -27,6 +32,7 @@ export function SwapResults({
     amountToOcean: amountToOceanUniswap,
     amountToAgix: amountToAgixUniswap,
     amountToFet: amountToFetUniswap,
+    amountToCudos: amountToCudosUniswap,
     isValidatingToAgix,
     isLoadingToAgix,
     isValidatingToFet,
@@ -40,6 +46,7 @@ export function SwapResults({
   const amountInUsd = amount * prices[tokenSelected].usd
   const amountToOcean = amountInUsd / prices.ocean.usd
   const amountToAgix = amountInUsd / prices.agix.usd
+  const amountToCudos = amountInUsd / prices.cudos.usd
 
   // As of July 1st, use fixed ratios instead of FET market price
   // for Migration Tool scenario
@@ -53,6 +60,7 @@ export function SwapResults({
 
   const showOcean = !isMigration || (isMigration && tokenSelected === 'ocean')
   const showAgix = !isMigration || (isMigration && tokenSelected === 'agix')
+  const showCudos = !isMigration || (isMigration && tokenSelected === 'cudos')
 
   return (
     <>
@@ -103,6 +111,23 @@ export function SwapResults({
         isValidating={isValidatingToFet || isValidatingPrices}
         isLoading={isLoadingToFet || isLoadingPrices}
       />
+
+      {showCudos ? (
+        <Result
+          token={getTokenBySymbol('CUDOS')}
+          amount={amountToCudosUniswap || amountToCudos}
+          amountAsi={(amountToCudosUniswap || amountToCudos) / ratioCudosToAsi}
+          amountFiat={
+            ((amountToCudosUniswap || amountToCudos) / ratioCudosToAsi) *
+            prices.asi.usd
+          }
+          amountOriginalFiat={
+            (amountToCudosUniswap || amountToCudos) * prices.cudos.usd
+          }
+          isValidating={isValidatingToFet || isValidatingPrices}
+          isLoading={isLoadingToFet || isLoadingPrices}
+        />
+      ) : null}
     </>
   )
 }

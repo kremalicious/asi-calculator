@@ -15,6 +15,7 @@ export type Prices = {
   ocean: PriceCoingecko
   fet: PriceCoingecko
   agix: PriceCoingecko
+  cudos: PriceCoingecko
   asi: PriceCoingecko
 }
 
@@ -31,13 +32,15 @@ export function usePrices(): {
   const oceanAddress = getTokenAddressBySymbol('OCEAN')
   const fetAddress = getTokenAddressBySymbol('FET')
   const agixAddress = getTokenAddressBySymbol('AGIX')
+  const cudosAddress = getTokenAddressBySymbol('CUDOS')
 
-  if (!data || !oceanAddress || !fetAddress || !agixAddress)
+  if (!data || !oceanAddress || !fetAddress || !agixAddress || !cudosAddress)
     return {
       prices: {
         ocean: { usd: 0, usd_24h_change: 0 },
         fet: { usd: 0, usd_24h_change: 0 },
         agix: { usd: 0, usd_24h_change: 0 },
+        cudos: { usd: 0, usd_24h_change: 0 },
         asi: { usd: 0, usd_24h_change: 0 }
       },
       isValidating,
@@ -47,7 +50,8 @@ export function usePrices(): {
   const ocean = data[oceanAddress]
   const fet = data[fetAddress]
   const agix = data[agixAddress]
+  const cudos = data[cudosAddress]
   const asi = fet
 
-  return { prices: { ocean, fet, agix, asi }, isValidating, isLoading }
+  return { prices: { ocean, fet, agix, cudos, asi }, isValidating, isLoading }
 }

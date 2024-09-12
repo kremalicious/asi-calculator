@@ -41,7 +41,8 @@ export function FormAmount({
     : [
         { value: 'OCEAN', label: 'OCEAN' },
         { value: 'FET', label: 'FET' },
-        { value: 'AGIX', label: 'AGIX' }
+        { value: 'AGIX', label: 'AGIX' },
+        { value: 'CUDOS', label: 'CUDOS' }
       ]
 
   return (
