@@ -100,18 +100,6 @@ export function SwapResults({
         />
       ) : null}
 
-      <Result
-        token={getTokenBySymbol('FET')}
-        amount={amountToFetUniswap || amountToFet}
-        amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
-        amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
-        amountOriginalFiat={
-          (amountToFetUniswap || amountToFet) * prices.asi.usd
-        }
-        isValidating={isValidatingToFet || isValidatingPrices}
-        isLoading={isLoadingToFet || isLoadingPrices}
-      />
-
       {showCudos ? (
         <Result
           token={getTokenBySymbol('CUDOS')}
@@ -128,6 +116,18 @@ export function SwapResults({
           isLoading={isLoadingToFet || isLoadingPrices}
         />
       ) : null}
+
+      <Result
+        token={getTokenBySymbol('FET')}
+        amount={amountToFetUniswap || amountToFet}
+        amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
+        amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
+        amountOriginalFiat={
+          (amountToFetUniswap || amountToFet) * prices.asi.usd
+        }
+        isValidating={isValidatingToFet || isValidatingPrices}
+        isLoading={isLoadingToFet || isLoadingPrices}
+      />
     </>
   )
 }

@@ -47,22 +47,22 @@ export function Buy() {
         isLoading={isLoading}
       />
       <Result
-        token={getTokenBySymbol('FET')}
-        amount={debouncedAmount / prices.fet.usd}
-        amountAsi={(debouncedAmount / prices.fet.usd) * ratioFetToAsi}
-        amountFiat={
-          (debouncedAmount / prices.fet.usd) * ratioFetToAsi * prices.asi.usd
-        }
-        isValidating={isValidating}
-        isLoading={isLoading}
-      />
-      <Result
         token={getTokenBySymbol('CUDOS')}
         amount={debouncedAmount / prices.cudos.usd}
         amountAsi={debouncedAmount / prices.cudos.usd / ratioCudosToAsi}
         amountFiat={
           (debouncedAmount / prices.cudos.usd / ratioCudosToAsi) *
           prices.asi.usd
+        }
+        isValidating={isValidating}
+        isLoading={isLoading}
+      />
+      <Result
+        token={getTokenBySymbol('FET')}
+        amount={debouncedAmount / prices.fet.usd}
+        amountAsi={(debouncedAmount / prices.fet.usd) * ratioFetToAsi}
+        amountFiat={
+          (debouncedAmount / prices.fet.usd) * ratioFetToAsi * prices.asi.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
