@@ -78,7 +78,7 @@ export function useQuote(
   const amountToAgix =
     dataSwapToAgix?.amountOut / Number(`1e${dataSwapToAgix?.decimals}`)
   const amountToCudos =
-    dataSwapToAgix?.amountOut / Number(`1e${dataSwapToCudos?.decimals}`)
+    dataSwapToCudos?.amountOut / Number(`1e${dataSwapToCudos?.decimals}`)
   const amountToFet =
     dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)
 
