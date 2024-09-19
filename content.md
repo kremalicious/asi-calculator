@@ -32,8 +32,8 @@ You can find more reasoning about the token merge in every team's announcement p
 | Proposal | Status |
 |----------|----------|
 | [ASI-01: FET to ASI Migration](https://www.mintscan.io/fetchai/proposals/26)    | ✅ Passed    |
-| [ASI-02: AGIX merge into ASI - ASI Migration](https://www.mintscan.io/fetchai/proposals/27)    | ✅ Passed    |
-| [ASI-03: OCEAN merge into ASI - ASI Migration](https://www.mintscan.io/fetchai/proposals/28)    | ✅ Passed    |
+| [ASI-02: AGIX merge into ASI](https://www.mintscan.io/fetchai/proposals/27)    | ✅ Passed    |
+| [ASI-03: OCEAN merge into ASI](https://www.mintscan.io/fetchai/proposals/28)    | ✅ Passed    |
 | [Approve allASI as Migration Mechanic](https://www.mintscan.io/osmosis/proposals/810)    | ✅ Passed    |
 | [Integration of CUDOS into the Artificial Superintelligence Alliance](https://www.mintscan.io/cudos/proposals/21)    | 🕕 Voting...    |
 
