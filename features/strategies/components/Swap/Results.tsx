@@ -38,7 +38,9 @@ export function SwapResults({
     isValidatingToFet,
     isLoadingToFet,
     isValidatingToOcean,
-    isLoadingToOcean
+    isLoadingToOcean,
+    isValidatingToCudos,
+    isLoadingToCudos
   } = useQuote(tokenSymbol, amount, isUniswap)
 
   const tokenSelected = tokenSymbol.toLowerCase() as keyof Prices
@@ -55,11 +57,14 @@ export function SwapResults({
       ? amount * ratioOceanToAsi
       : tokenSelected === 'agix'
         ? amount * ratioAgixToAsi
-        : amount
+        : tokenSelected === 'cudos'
+          ? amount * ratioCudosToAsi
+          : amount
     : amountInUsd / prices.fet.usd
 
   const showOcean = !isMigration || (isMigration && tokenSelected === 'ocean')
   const showAgix = !isMigration || (isMigration && tokenSelected === 'agix')
+  const showFet = !isMigration || (isMigration && tokenSelected === 'fet')
   const showCudos = !isMigration || (isMigration && tokenSelected === 'cudos')
 
   return (
@@ -112,22 +117,24 @@ export function SwapResults({
           amountOriginalFiat={
             (amountToCudosUniswap || amountToCudos) * prices.cudos.usd
           }
+          isValidating={isValidatingToCudos || isValidatingPrices}
+          isLoading={isLoadingToCudos || isLoadingPrices}
+        />
+      ) : null}
+
+      {showFet ? (
+        <Result
+          token={getTokenBySymbol('FET')}
+          amount={amountToFetUniswap || amountToFet}
+          amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
+          amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
+          amountOriginalFiat={
+            (amountToFetUniswap || amountToFet) * prices.asi.usd
+          }
           isValidating={isValidatingToFet || isValidatingPrices}
           isLoading={isLoadingToFet || isLoadingPrices}
         />
       ) : null}
-
-      <Result
-        token={getTokenBySymbol('FET')}
-        amount={amountToFetUniswap || amountToFet}
-        amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
-        amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
-        amountOriginalFiat={
-          (amountToFetUniswap || amountToFet) * prices.asi.usd
-        }
-        isValidating={isValidatingToFet || isValidatingPrices}
-        isLoading={isLoadingToFet || isLoadingPrices}
-      />
     </>
   )
 }
