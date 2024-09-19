@@ -8,7 +8,7 @@ Since July 1st, the official migration tool can be used to guarantee fixed ratio
 
 - [singularitydao.ai/migrate-asi](https://singularitydao.ai/migrate-asi)
 
-The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) v3 routes onchain, reflecting the actual liquidity situation for direct swaps between shown tokens.
+The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) routes onchain, reflecting the actual liquidity situation for direct swaps between shown tokens.
 
 All displayed values should be seen as estimates. Except for the fixed ASI exchange rate, all other values are constantly changing based on market conditions. There is no guarantee the displayed values reflect the value of your investment once the actual ASI swap mechanism is released. Use at your own risk.
 

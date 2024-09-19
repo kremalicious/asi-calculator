@@ -19,7 +19,7 @@ export function SwapResults({
   amount: number
   market: Market
 }) {
-  const isUniswap = market === 'uniswap-v3'
+  const isUniswap = market === 'uniswap'
   const isMigration = market === 'migration'
 
   const {

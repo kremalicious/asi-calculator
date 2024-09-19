@@ -5,7 +5,7 @@ import type { Dispatch, SetStateAction } from 'react'
 const options = [
   { value: 'market', label: 'All Markets' },
   { value: 'migration', label: 'Migration Tool' },
-  { value: 'uniswap-v3', label: 'Uniswap v3' }
+  { value: 'uniswap', label: 'Uniswap' }
 ]
 
 export function FormMarket({
