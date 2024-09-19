@@ -1,7 +1,12 @@
 'use client'
 
 import { Badge } from '@/components'
-import { ratioAgixToAsi, ratioFetToAsi, ratioOceanToAsi } from '@/constants'
+import {
+  ratioAgixToAsi,
+  ratioCudosToAsi,
+  ratioFetToAsi,
+  ratioOceanToAsi
+} from '@/constants'
 import { Price, usePrices } from '@/features/prices'
 import styles from './MarketData.module.css'
 
@@ -11,12 +16,8 @@ export function MarketData() {
   return (
     <ul className={styles.marketData}>
       <li>
-        <p>1 ASI</p>
-        <Price price={prices.asi} />
-      </li>
-      <li>
         <p>
-          1 Fet = {ratioFetToAsi} ASI
+          1 FET = {ratioFetToAsi} ASI
           <Badge>fixed</Badge>
         </p>
         <Price price={prices.fet} />
@@ -38,6 +39,15 @@ export function MarketData() {
           <Badge>fixed</Badge>
         </p>
         <Price price={prices.agix} />
+      </li>
+      <li>
+        <p>
+          1 CUDOS ={' '}
+          <span title={`${ratioCudosToAsi}`}>{ratioCudosToAsi.toFixed(5)}</span>{' '}
+          ASI
+          <Badge>fixed</Badge>
+        </p>
+        <Price price={prices.cudos} />
       </li>
     </ul>
   )

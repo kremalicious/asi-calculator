@@ -58,10 +58,27 @@ export function useQuote(
     options
   )
 
+  // -> CUDOS
+  const {
+    data: dataSwapToCudos,
+    isValidating: isValidatingToCudos,
+    isLoading: isLoadingToCudos
+  } = useSWR(
+    shouldFetch
+      ? `/api/quote/?tokenIn=${getTokenAddressBySymbol(
+          tokenSymbol
+        )}&tokenOut=${getTokenAddressBySymbol('CUDOS')}&amountIn=${amount}`
+      : null,
+    fetcher,
+    options
+  )
+
   const amountToOcean =
     dataSwapToOcean?.amountOut / Number(`1e${dataSwapToOcean?.decimals}`)
   const amountToAgix =
     dataSwapToAgix?.amountOut / Number(`1e${dataSwapToAgix?.decimals}`)
+  const amountToCudos =
+    dataSwapToCudos?.amountOut / Number(`1e${dataSwapToCudos?.decimals}`)
   const amountToFet =
     dataSwapToFet?.amountOut / Number(`1e${dataSwapToFet?.decimals}`)
 
@@ -70,22 +87,28 @@ export function useQuote(
         amountToOcean,
         amountToAgix,
         amountToFet,
+        amountToCudos,
         isValidatingToAgix,
         isLoadingToAgix,
         isValidatingToFet,
         isLoadingToFet,
         isValidatingToOcean,
-        isLoadingToOcean
+        isLoadingToOcean,
+        isValidatingToCudos,
+        isLoadingToCudos
       }
     : {
         amountToOcean: undefined,
         amountToAgix: undefined,
+        amountToCudos: undefined,
         amountToFet: undefined,
         isValidatingToAgix: false,
         isLoadingToAgix: false,
         isValidatingToFet: false,
         isLoadingToFet: false,
         isValidatingToOcean: false,
-        isLoadingToOcean: false
+        isLoadingToOcean: false,
+        isValidatingToCudos: false,
+        isLoadingToCudos: false
       }
 }

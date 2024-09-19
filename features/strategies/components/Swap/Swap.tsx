@@ -12,11 +12,11 @@ import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 
 export function Swap() {
-  const [amount, setAmount] = usePersistentState('swapAmount', 100)
+  const [amount, setAmount] = usePersistentState('swapAmount', 1000)
   const [debouncedAmount] = useDebounce(amount, 500)
   const [tokenSymbol, setTokenSymbol] = usePersistentState<TokenSymbol>(
     'swapTokenSymbol',
-    'OCEAN'
+    'CUDOS'
   )
   const [market, setMarket] = usePersistentState<Market>('swapMarket', 'all')
 
