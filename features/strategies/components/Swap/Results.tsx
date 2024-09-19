@@ -109,9 +109,10 @@ export function SwapResults({
         <Result
           token={getTokenBySymbol('CUDOS')}
           amount={amountToCudosUniswap || amountToCudos}
-          amountAsi={(amountToCudosUniswap || amountToCudos) / ratioCudosToAsi}
+          amountAsi={(amountToCudosUniswap || amountToCudos) * ratioCudosToAsi}
           amountFiat={
-            ((amountToCudosUniswap || amountToCudos) / ratioCudosToAsi) *
+            (amountToCudosUniswap || amountToCudos) *
+            ratioCudosToAsi *
             prices.asi.usd
           }
           amountOriginalFiat={

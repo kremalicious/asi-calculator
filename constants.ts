@@ -9,7 +9,7 @@ export const repoUrl = 'https://github.com/kremalicious/asi-calculator'
 
 export const ratioOceanToAsi = 0.43322638231018
 export const ratioAgixToAsi = 0.43335018345744
-export const ratioCudosToAsi = 118.344 // 112.427 + 5% fee
+export const ratioCudosToAsi = 1 / 118.344 // 112.427 + 5% fee
 export const ratioFetToAsi = 1
 
 export const tokens: Token[] = [

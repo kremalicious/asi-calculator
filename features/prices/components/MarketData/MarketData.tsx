@@ -42,7 +42,8 @@ export function MarketData() {
       </li>
       <li>
         <p>
-          1 CUDOS = <span title={`${ratioCudosToAsi}`}>{ratioCudosToAsi}</span>{' '}
+          1 CUDOS ={' '}
+          <span title={`${ratioCudosToAsi}`}>{ratioCudosToAsi.toFixed(5)}</span>{' '}
           ASI
           <Badge>fixed</Badge>
         </p>
