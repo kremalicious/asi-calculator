@@ -1,14 +1,12 @@
 ## The Calculator
 
-The **ASI rows** show what you would get with the given token amount at the moment of the ASI swap, along with the converted USD value based on the current price of FET.
+The **ASI values** show what you would get with the given token amount and using the official [migration tool](https://singularitydao.ai/migrate-asi) with its fixed ratios, along with the converted USD value based on the current price of FET.
 
-The _All Markets_ scenario uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Kraken, who continue to trade OCEAN/AGIX/CUDOS/FET.
+The **All Markets scenario** uses current spot prices fetched from [Coingecko](https://coingecko.com), ignoring the actual liquidity situation but these values should be pretty close to what you would get on big centralized exchanges like Coinbase or Kraken, who continue to trade OCEAN/AGIX/CUDOS/FET.
 
-Since July 1st, the official migration tool can be used to guarantee fixed ratios independent of any market forces. The _Migration Tool_ scenario uses these ratios for showing the FET amount:
+The **Migration Tool scenario** shows the selected tokens in isolation for more clarity.
 
-- [singularitydao.ai/migrate-asi](https://singularitydao.ai/migrate-asi)
-
-The swap estimations for _Uniswap_ scenario are fetched directly from [Uniswap](https://uniswap.org) routes onchain, reflecting the actual liquidity situation for direct swaps between shown tokens.
+The swap estimations for **Uniswap scenario** are fetched directly from [Uniswap](https://uniswap.org) routes onchain, reflecting the actual liquidity situation for direct swaps between shown tokens.
 
 All displayed values should be seen as estimates. Except for the fixed ASI exchange rate, all other values are constantly changing based on market conditions. There is no guarantee the displayed values reflect the value of your investment once the actual ASI swap mechanism is released. Use at your own risk.
 
@@ -18,6 +16,7 @@ The ASI website and docs provide insights into most key points:
 
 - [superintelligence.io](https://www.superintelligence.io)
 - [ASI Vision Paper](https://docs.superintelligence.io/artificial-superintelligence-alliance/artificial-superintelligence-asi-alliance-vision-paper)
+- [Official Migration Tool](https://singularitydao.ai/migrate-asi)
 
 ### Team Announcements
 
