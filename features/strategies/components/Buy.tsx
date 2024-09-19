@@ -49,9 +49,10 @@ export function Buy() {
       <Result
         token={getTokenBySymbol('CUDOS')}
         amount={debouncedAmount / prices.cudos.usd}
-        amountAsi={debouncedAmount / prices.cudos.usd / ratioCudosToAsi}
+        amountAsi={(debouncedAmount / prices.cudos.usd) * ratioCudosToAsi}
         amountFiat={
-          (debouncedAmount / prices.cudos.usd / ratioCudosToAsi) *
+          (debouncedAmount / prices.cudos.usd) *
+          ratioCudosToAsi *
           prices.asi.usd
         }
         isValidating={isValidating}
