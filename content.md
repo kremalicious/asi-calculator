@@ -16,6 +16,7 @@ The ASI website and docs provide insights into most key points:
 
 - [superintelligence.io](https://www.superintelligence.io)
 - [ASI Vision Paper](https://docs.superintelligence.io/artificial-superintelligence-alliance/artificial-superintelligence-asi-alliance-vision-paper)
+- [ASI Vision Paper: CUDOS Edition](https://434267010-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FE0eZgP8lxRNljW57Uw4H%2Fuploads%2FuBl8JOejFWzLYBie82UO%2FArtificial%20Superintelligence%20(ASI)%20Alliance%20Vision%20Paper%20-%20CUDOS%20Edition.pdf?alt=media&token=70b61f9d-cd75-4660-91b6-470b9e826b38)
 - [Official Migration Tool](https://singularitydao.ai/migrate-asi)
 
 ### Team Announcements
@@ -36,6 +37,7 @@ You can find more reasoning about the token merge in every team's announcement p
 | [ASI-03: OCEAN merge into ASI](https://www.mintscan.io/fetchai/proposals/28)    | ✅ Passed    |
 | [Approve allASI as Migration Mechanic](https://www.mintscan.io/osmosis/proposals/810)    | ✅ Passed    |
 | [Integration of CUDOS into the Artificial Superintelligence Alliance](https://www.mintscan.io/cudos/proposals/21)    | 🕕 Voting...    |
+| [ASI Governance Proposal: Integration of CUDOS into the ASI Alliance](https://www.mintscan.io/fetchai/proposals/31)    | 🕕 Voting...    |
 
 
 ## Found an Issue?
