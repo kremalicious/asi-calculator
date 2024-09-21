@@ -28,7 +28,7 @@ You can find more reasoning about the token merge in every team's announcement p
 - [SingularityNET: Introducing the Artificial Superintelligence Alliance](https://blog.singularitynet.io/introducing-the-artificial-superintelligence-alliance-40a4dea01e62)
 - [CUDOS: Artificial Superintelligence Alliance Proposes Addition of Cloud Compute Infrastructure Provider CUDOS](https://www.cudos.org/blog/artificial-superintelligence-alliance-proposes-addition-of-cloud-compute)
 
-### Community Proposals
+### Governance Proposals
 
 | Proposal | Status |
 |----------|----------|

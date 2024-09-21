@@ -9,7 +9,7 @@ export function formatCrypto(price: number, currency: string, locale: string) {
 
 export function formatFiat(price: number, currency: string, locale: string) {
   let formattedPrice = formatCurrency(price, currency, locale, false, {
-    decimalPlaces: 2,
+    decimalPlaces: price < 1 ? 6 : 2,
     significantFigures: 8
   })
 
