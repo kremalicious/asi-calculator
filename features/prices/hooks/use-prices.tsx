@@ -24,7 +24,7 @@ export function usePrices(): {
   isValidating: boolean
   isLoading: boolean
 } {
-  const { data, isValidating, isLoading } = useSWR(
+  const { data, error, isValidating, isLoading } = useSWR(
     `/api/prices?tokens=${tokenAddresses}`,
     fetcher
   )
@@ -34,24 +34,33 @@ export function usePrices(): {
   const agixAddress = getTokenAddressBySymbol('AGIX')
   const cudosAddress = getTokenAddressBySymbol('CUDOS')
 
-  if (!data || !oceanAddress || !fetAddress || !agixAddress || !cudosAddress)
-    return {
-      prices: {
-        ocean: { usd: 0, usd_24h_change: 0 },
-        fet: { usd: 0, usd_24h_change: 0 },
-        agix: { usd: 0, usd_24h_change: 0 },
-        cudos: { usd: 0, usd_24h_change: 0 },
-        asi: { usd: 0, usd_24h_change: 0 }
-      },
-      isValidating,
-      isLoading
-    }
+  const pricesEmpty = {
+    ocean: { usd: 0, usd_24h_change: 0 },
+    fet: { usd: 0, usd_24h_change: 0 },
+    agix: { usd: 0, usd_24h_change: 0 },
+    cudos: { usd: 0, usd_24h_change: 0 },
+    asi: { usd: 0, usd_24h_change: 0 }
+  }
 
-  const ocean = data[oceanAddress]
-  const fet = data[fetAddress]
-  const agix = data[agixAddress]
-  const cudos = data[cudosAddress]
-  const asi = fet
+  const isError =
+    !data ||
+    error ||
+    !oceanAddress ||
+    !fetAddress ||
+    !agixAddress ||
+    !cudosAddress
 
-  return { prices: { ocean, fet, agix, cudos, asi }, isValidating, isLoading }
+  return {
+    prices: isError
+      ? pricesEmpty
+      : {
+          ocean: data[oceanAddress],
+          fet: data[fetAddress],
+          agix: data[agixAddress],
+          cudos: data[cudosAddress],
+          asi: data[fetAddress]
+        },
+    isValidating,
+    isLoading
+  }
 }

@@ -46,9 +46,9 @@ export function SwapResults({
   const tokenSelected = tokenSymbol.toLowerCase() as keyof Prices
 
   const amountInUsd = amount * prices[tokenSelected]?.usd
-  const amountToOcean = amountInUsd / prices.ocean.usd
-  const amountToAgix = amountInUsd / prices.agix.usd
-  const amountToCudos = amountInUsd / prices.cudos.usd
+  const amountToOcean = amountInUsd / prices.ocean?.usd
+  const amountToAgix = amountInUsd / prices.agix?.usd
+  const amountToCudos = amountInUsd / prices.cudos?.usd
 
   // As of July 1st, use fixed ratios instead of FET market price
   // for Migration Tool scenario
@@ -60,7 +60,7 @@ export function SwapResults({
         : tokenSelected === 'cudos'
           ? amount * ratioCudosToAsi
           : amount
-    : amountInUsd / prices.fet.usd
+    : amountInUsd / prices.fet?.usd
 
   const showOcean = !isMigration || (isMigration && tokenSelected === 'ocean')
   const showAgix = !isMigration || (isMigration && tokenSelected === 'agix')
@@ -77,10 +77,10 @@ export function SwapResults({
           amountFiat={
             (amountToOceanUniswap || amountToOcean) *
             ratioOceanToAsi *
-            prices.asi.usd
+            prices.asi?.usd
           }
           amountOriginalFiat={
-            (amountToOceanUniswap || amountToOcean) * prices.ocean.usd
+            (amountToOceanUniswap || amountToOcean) * prices.ocean?.usd
           }
           isValidating={isValidatingToOcean || isValidatingPrices}
           isLoading={isLoadingToOcean || isLoadingPrices}
@@ -95,10 +95,10 @@ export function SwapResults({
           amountFiat={
             (amountToAgixUniswap || amountToAgix) *
             ratioAgixToAsi *
-            prices.asi.usd
+            prices.asi?.usd
           }
           amountOriginalFiat={
-            (amountToAgixUniswap || amountToAgix) * prices.agix.usd
+            (amountToAgixUniswap || amountToAgix) * prices.agix?.usd
           }
           isValidating={isValidatingToAgix || isValidatingPrices}
           isLoading={isLoadingToAgix || isLoadingPrices}
@@ -113,10 +113,10 @@ export function SwapResults({
           amountFiat={
             (amountToCudosUniswap || amountToCudos) *
             ratioCudosToAsi *
-            prices.asi.usd
+            prices.asi?.usd
           }
           amountOriginalFiat={
-            (amountToCudosUniswap || amountToCudos) * prices.cudos.usd
+            (amountToCudosUniswap || amountToCudos) * prices.cudos?.usd
           }
           isValidating={isValidatingToCudos || isValidatingPrices}
           isLoading={isLoadingToCudos || isLoadingPrices}
@@ -128,9 +128,9 @@ export function SwapResults({
           token={getTokenBySymbol('FET')}
           amount={amountToFetUniswap || amountToFet}
           amountAsi={(amountToFetUniswap || amountToFet) * ratioFetToAsi}
-          amountFiat={(amountToFetUniswap || amountToFet) * prices.asi.usd}
+          amountFiat={(amountToFetUniswap || amountToFet) * prices.asi?.usd}
           amountOriginalFiat={
-            (amountToFetUniswap || amountToFet) * prices.asi.usd
+            (amountToFetUniswap || amountToFet) * prices.asi?.usd
           }
           isValidating={isValidatingToFet || isValidatingPrices}
           isLoading={isLoadingToFet || isLoadingPrices}

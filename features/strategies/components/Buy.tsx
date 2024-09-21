@@ -26,44 +26,46 @@ export function Buy() {
       </h3>
       <Result
         token={getTokenBySymbol('OCEAN')}
-        amount={debouncedAmount / prices.ocean.usd}
-        amountAsi={(debouncedAmount / prices.ocean.usd) * ratioOceanToAsi}
+        amount={debouncedAmount / prices.ocean?.usd}
+        amountAsi={(debouncedAmount / prices.ocean?.usd) * ratioOceanToAsi}
         amountFiat={
-          (debouncedAmount / prices.ocean.usd) *
+          (debouncedAmount / prices.ocean?.usd) *
           ratioOceanToAsi *
-          prices.asi.usd
+          prices.asi?.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('AGIX')}
-        amount={debouncedAmount / prices.agix.usd}
-        amountAsi={(debouncedAmount / prices.agix.usd) * ratioAgixToAsi}
+        amount={debouncedAmount / prices.agix?.usd}
+        amountAsi={(debouncedAmount / prices.agix?.usd) * ratioAgixToAsi}
         amountFiat={
-          (debouncedAmount / prices.agix.usd) * ratioAgixToAsi * prices.asi.usd
+          (debouncedAmount / prices.agix?.usd) *
+          ratioAgixToAsi *
+          prices.asi?.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('CUDOS')}
-        amount={debouncedAmount / prices.cudos.usd}
-        amountAsi={(debouncedAmount / prices.cudos.usd) * ratioCudosToAsi}
+        amount={debouncedAmount / prices.cudos?.usd}
+        amountAsi={(debouncedAmount / prices.cudos?.usd) * ratioCudosToAsi}
         amountFiat={
-          (debouncedAmount / prices.cudos.usd) *
+          (debouncedAmount / prices.cudos?.usd) *
           ratioCudosToAsi *
-          prices.asi.usd
+          prices.asi?.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}
       />
       <Result
         token={getTokenBySymbol('FET')}
-        amount={debouncedAmount / prices.fet.usd}
-        amountAsi={(debouncedAmount / prices.fet.usd) * ratioFetToAsi}
+        amount={debouncedAmount / prices.fet?.usd}
+        amountAsi={(debouncedAmount / prices.fet?.usd) * ratioFetToAsi}
         amountFiat={
-          (debouncedAmount / prices.fet.usd) * ratioFetToAsi * prices.asi.usd
+          (debouncedAmount / prices.fet?.usd) * ratioFetToAsi * prices.asi?.usd
         }
         isValidating={isValidating}
         isLoading={isLoading}

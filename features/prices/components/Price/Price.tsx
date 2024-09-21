@@ -16,7 +16,7 @@ export function Price({ price }: { price: PriceCoingecko }) {
   return (
     <p className={styles.price}>
       <span className={`${styles.fiat} ${feedbackClasses}`}>
-        {formatFiat(price.usd, 'USD', locale)}
+        {formatFiat(price?.usd, 'USD', locale)}
       </span>
       {price?.usd_24h_change ? (
         <PriceChange priceChange={price.usd_24h_change} />
