@@ -45,7 +45,7 @@ export function SwapResults({
 
   const tokenSelected = tokenSymbol.toLowerCase() as keyof Prices
 
-  const amountInUsd = amount * prices[tokenSelected].usd
+  const amountInUsd = amount * prices[tokenSelected]?.usd
   const amountToOcean = amountInUsd / prices.ocean.usd
   const amountToAgix = amountInUsd / prices.agix.usd
   const amountToCudos = amountInUsd / prices.cudos.usd
