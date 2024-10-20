@@ -25,7 +25,8 @@
 @media (prefers-color-scheme: dark) {
   .logo[data-symbol='OCEAN'] img,
   .logo[data-symbol='FET'] img,
-  .logo[data-symbol='ASI'] img {
+  .logo[data-symbol='ASI'] img,
+  .logo[data-symbol='CUDOS'] img {
     filter: invert(1) grayscale(1);
   }
 
