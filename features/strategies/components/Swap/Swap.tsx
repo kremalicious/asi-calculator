@@ -1,5 +1,6 @@
 'use client'
 
+import { useDebounce } from 'use-debounce'
 import {
   FormAmount,
   FormMarket,
@@ -8,7 +9,6 @@ import {
 } from '@/features/strategies'
 import stylesShared from '@/features/strategies/styles/shared.module.css'
 import type { TokenSymbol } from '@/types'
-import { useDebounce } from 'use-debounce'
 import { SwapResults } from './Results'
 
 export function Swap() {

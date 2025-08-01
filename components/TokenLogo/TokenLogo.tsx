@@ -26,7 +26,7 @@ export function TokenLogo({
 
   return token ? (
     <span className={styles.logo} data-symbol={token.symbol}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {/* biome-ignore lint/performance/noImgElement: we need img here */}
       <img
         src={imageSrc.src}
         width={size}
