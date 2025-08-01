@@ -1,2 +1,2 @@
-export * from './use-prices'
 export * from './use-locale'
+export * from './use-prices'

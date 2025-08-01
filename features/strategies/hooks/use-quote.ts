@@ -1,8 +1,8 @@
 'use client'
 
+import useSWR from 'swr'
 import { fetcher, getTokenAddressBySymbol } from '@/lib'
 import type { TokenSymbol } from '@/types'
-import useSWR from 'swr'
 
 const options = {
   keepPreviousData: true // so loading UI can kick in properly

@@ -1,5 +1,5 @@
-import type { Token } from '@/types'
 import { Hanken_Grotesk } from 'next/font/google'
+import type { Token } from '@/types'
 
 export const title = 'ASI Calculator'
 export const description =

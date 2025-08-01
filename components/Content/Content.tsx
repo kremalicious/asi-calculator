@@ -1,6 +1,6 @@
-import content from '@/content.md'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import content from '@/content.md'
 import styles from './Content.module.css'
 
 export function Content() {

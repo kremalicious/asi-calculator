@@ -1,5 +1,5 @@
-import { repoUrl } from '@/constants'
 import { GitHubLogoIcon } from '@radix-ui/react-icons'
+import { repoUrl } from '@/constants'
 import styles from './Footer.module.css'
 
 export function Footer() {
