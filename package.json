@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next dev --turbopack",
+    "dev": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next dev",
     "build": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next build",
     "start": "export GIT_COMMIT_SHA=$(git rev-parse HEAD) && next start",
     "lint": "biome check .",
