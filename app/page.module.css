@@ -17,3 +17,22 @@
   max-width: calc(var(--max-width) * 1.5);
   margin: 3rem auto;
 }
+
+.notice {
+  max-width: var(--max-width);
+  margin: auto;
+  margin-top: 2rem;
+  background-color: rgba(var(--foreground-rgb), 0.85);
+  color: rgba(var(--background-rgb), 1);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+}
+
+.notice p:not(:last-child) {
+  margin-bottom: 1.25rem;
+}
+
+.notice time {
+  font-weight: bold;
+}
