@@ -4,6 +4,12 @@
 
 ## [→ asi.kremalicious.com](https://asi.kremalicious.com)
 
+**Deprecated as of Oct. 15, 2025**
+
+> The ASI token experiment never quite left the lab — no promised token ever launched, and only the Ocean Protocol team helped keep this site afloat (huge thanks 🐋).
+> 
+> With Ocean Protocol now [no longer part of the ASI alliance](https://blog.oceanprotocol.com/ocean-protocol-foundation-withdraws-from-the-artificial-superintelligence-alliance-4619c4604ea3), this calculator has been shut down.
+
 ## Development
 
 ```bash

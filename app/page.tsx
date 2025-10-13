@@ -21,20 +21,9 @@ export default function Home() {
             <a href="https://blog.oceanprotocol.com/ocean-protocol-foundation-withdraws-from-the-artificial-superintelligence-alliance-4619c4604ea3">
               no longer part of the ASI alliance
             </a>
-            , this calculator will be sunset on{' '}
-            <time dateTime="2025-10-31">October 31, 2025</time>.
+            , this calculator has been shut down.
           </p>
         </header>
-
-        <section className={styles.breakout}>
-          <div className={styles.grid}>
-            <Swap />
-            <Buy />
-          </div>
-          <MarketData />
-        </section>
-
-        <Content />
       </main>
 
       <Footer />
